@@ -1,0 +1,74 @@
+{
+  "iso": "en",
+  "docVersion": "6.0.0",
+  "links": {
+    "api": "API",
+    "blog": "Blog",
+    "chat": "Chat",
+    "documentation": "Documentation",
+    "download": "Download",
+    "examples": "Examples",
+    "ecosystem": "Ecosystem",
+    "faq": "FAQ",
+    "get_started": "get started",
+    "github": "GitHub",
+    "guide": "Guide",
+    "homepage": "Home page",
+    "live_demo": "Live Demo",
+    "live_edit": "Live Edit",
+    "tidelift_short": "GET PROFESSIONAL SUPPORT",
+    "official_support": "GET OFFICIAL SUPPORT ⛑",
+    "tidelift": "GET PROFESSIONAL SUPPORT FOR NUXT",
+    "twitter": "Twitter",
+    "vuejs": "Vue.js",
+    "vue_jobs": "Vue Jobs"
+  },
+  "text": {
+    "an_error_occurred": "An error occurred",
+    "api_page_not_found": "API page not found",
+    "example_file": "Example Files",
+    "please_wait": "Please wait...",
+    "please_define_title": "Please define a title in the front matter",
+    "please_define_description": "Please define a description in the front matter",
+    "search": "Search",
+    "version": "Version"
+  },
+  "homepage": {
+    "title": "WPT Component",
+    "meta": {
+      "title": "WebPivotTable component",
+      "description": "WPT component run inside any browsers to mimic Excel pivot table. WPT component connect to any data files, databases, OLAP cubes to analyze data on any devices anytime."
+    },
+    "welcome": {
+      "app_types_prefix": "For ",
+      "app_types": ["Enterprise Web site", "Web Application", "SaaS solution", "Business intelligence", "Data analyst"],
+      "app_types_suffix": "."
+    },
+    "codesandbox_title": "Play with WPT component online",
+    "codesandbox_open": "Open on CodeSandBox.io",
+    "codesandbox_examples": "See more examples",
+    "backer_partners": "Partners",
+    "backer_become_a_partner": "Become A Partner",
+    "backer_sponsors": "Sponsors",
+    "backer_become_a_sponsor": "Become A Sponsor",
+    "backer_backers": "Backers",
+    "backer_become_a_backer": "Become A Backer",
+    "backer_foundations": "Foundations"
+  },
+  "sponsors": {
+    "title": "Sponsors",
+    "become": "Support us and",
+    "become_partner": "become a partner"
+  },
+  "footer": {
+    "authors": "Made by Chopin Brothers"
+  },
+  "guide": {
+    "release_notes": "Release Notes",
+    "contribute": "Caught a mistake or want to contribute to the documentation?",
+    "edit_on_github": "Edit this page on GitHub!"
+  },
+  "examples": {
+    "source_code": "Source Code"
+  }
+}
