@@ -1,5 +1,6 @@
 ---
 title: Options
+description: ""
 ---
 
 WebPivotTable use options internally to control its look and feels and behaviours.

@@ -126,20 +126,5 @@
         "to": "/wpt-file-format", "name": "WPT file format"
       }
     ]
-  },
-  {
-    "title": "Version 4",
-    "links": [
-      {"to": "/v4-instruction", "name": "Instruction"},
-      {"to": "/v4-changes", "name": "Changes History"},
-      {"to": "/v4-integration", "name": "Integration Guide"},
-      {"to": "/v4-customize", "name": "Customize Options"},
-      {"to": "/v4-apis", "name": "APIs"},
-      {"to": "/v4-wpt-format", "name": "WPT File Format"},
-      {"to": "/v4-xmla-proxy", "name": "XMLA Proxy"},
-      {"to": "/v4-languages", "name": "Customize Languages"},
-      {"to": "/v4-database", "name": "Load Data From Database"},
-      {"to": "/v4-samples", "name": "Samples and Demos"}
-    ]
   }
 ]
