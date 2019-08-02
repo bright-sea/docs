@@ -1,34 +1,34 @@
 ---
-title: "API: CSS 配置"
-description: 在 Nuxtjs 里配置全局的 CSS 文件、模块、库。 (每个页面都会被引入)
+title: "API: The css Property"
+description: Nuxt.js lets you define the CSS files/modules/libraries you want to set globally (included in every page).
 ---
 
-# CSS 配置
+# The css Property
 
-> 在 Nuxtjs 里配置全局的 CSS 文件、模块、库。 (每个页面都会被引入)
+> Nuxt.js lets you define the CSS files/modules/libraries you want to set globally (included in every page).
 
-如果要使用 `sass` 就必须要安装 `node-sass`和`sass-loader` 。
+In case you want to use ```sass``` make sure that you have installed ```node-sass``` and ```sass-loader``` packages. If you didn't  just
 
 ```sh
 npm install --save-dev node-sass sass-loader
 ```
 
-在 `nuxt.conf.js`中，添加要使用的 CSS 资源：
+- Type: `Array`
+ - Items: `string`
 
-- Type: Array
-- Items: string
+In `nuxt.config.js`, add the CSS resources:
 
 ```js
-module.exports = {
+export default {
   css: [
-    // 直接加载一个 Node.js 模块。（在这里它是一个 Sass 文件）
+    // Load a Node.js module directly (here it's a Sass file)
     'bulma',
-    // 项目里要用的 CSS 文件
+    // CSS file in the project
     '@/assets/css/main.css',
-    // 项目里要使用的 SCSS 文件
+    // SCSS file in the project
     '@/assets/css/main.scss'
   ]
 }
 ```
 
-Nuxt.js 会自动识别被导入文件的扩展名，之后，webpack 会使用相应的预处理器进行处理。前提是，你安装了对应预处理器。
+Nuxt.js will automatically guess the file type by its extension and use the appropriate pre-processor loader for webpack. You will still need to install the required loader if you need to use them.

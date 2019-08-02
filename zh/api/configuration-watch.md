@@ -1,6 +1,6 @@
 ---
-title: "API: watch 属性"
-description: watch属性允许您监听自定义文件来重新启动服务器。
+title: "API: The watch Property"
+description: The watch property lets you watch custom files for restarting the server.
 ---
 
 # The watch Property
@@ -8,10 +8,10 @@ description: watch属性允许您监听自定义文件来重新启动服务器�
 - Type: `Object`
 - Default: `[]`
 
-> watch属性允许您监听自定义文件来重新启动服务器。
+> The watch property lets you watch custom files for restarting the server.
 
 ```js
 watch: ['~/custom/*.js']
 ```
 
-[chokidar](https://github.com/paulmillr/chokidar)用于建立`watch`。要了解有关chokidar模式选项的更多信息，请参阅 [chokidar API](https://github.com/paulmillr/chokidar#api)。
+[chokidar](https://github.com/paulmillr/chokidar) is used to set up the watchers. To learn more about chokidar's pattern options, see the [chokidar API](https://github.com/paulmillr/chokidar#api).

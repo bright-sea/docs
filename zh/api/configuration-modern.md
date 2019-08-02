@@ -1,25 +1,27 @@
 ---
-title: "API: modern 属性"
+title: "API: The modern Property"
 description: Build and server a modern bundle
 ---
 
-# modern 属性
+# The modern Property
 
-> 此功能的想法来自 [vue-cli modern mode](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode)
+> This feature is inspired by [vue-cli modern mode](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode) 
 
-- 类型: `String` 或 `Boolean`
-  - 默认: false
-  - 可能的值:
-    - `'client'`: 构建两个版本的包：同时提供面向支持现在浏览器的 ES2015+ 写法支持 `<script type ="module">` 和兼容性低的其他旧浏览器的包 `<script nomodule>` 的脚本，同时为现代浏览器打包提供 `<link rel ="modulepreload">` 。每个正确解析模块类型的现代浏览器都会加载现代浏览器软件依赖包，而旧版浏览器则会加载到指定旧版浏览器的依赖包（已编译）。
-    - `'server'` or `true`: Node.js服务器将根据用户代理检查浏览器版本，并提供相应的现代浏览器或兼容性低的浏览器捆绑依赖。
-    - `false`: 关闭 modern 打包
+- Type: `String` or `Boolean`
+  - Default: false
+  - Possible values:
+    - `'client'`: Serve both, the modern bundle `<script type="module">` and the legacy bundle `<script nomodule>` scripts, also provide a `<link rel="modulepreload">` for the modern bundle. Every browser that understands the `module` type will load the modern bundle while older browsers fall back to the legacy (transpiled) one.
+    - `'server'` or `true`: The Node.js server will check browser version based on the user agent and serve the corresponding modern or legacy bundle.
+    - `false`: Disable modern build
 
-捆绑打包的两个版本是:
+The two versions of bundles are:
 
-1. Modern bundle: 定位支持ES模块的现代浏览器
-1. Legacy bundle: 基于babel配置定位兼容性低浏览器（默认情况下兼容IE9）。
+1. Modern bundle: targeting modern browsers that support ES modules
+1. Legacy bundle: targeting older browsers based on babel config (IE9 compatible by default).
 
-**Info:** 在package.json中，可以使用命令选项：`[--modern | -m]=[mode]` 来指定构建并启动(`build/start`) modern属性，例如：
+**Info:**
+
+- Use command option `[--modern | -m]=[mode]` to build/start modern bundles, for example: in `package.json`:
 
 ```json
 {
@@ -29,16 +31,16 @@ description: Build and server a modern bundle
   }
 }
 ```
+**Note about *nuxt generate*:** The `modern` property also works with the `nuxt generate` command, but in this case only the `client` option is honored and will be selected automatically when launching the `nuxt generate --modern` command without providing any values.
 
-
-- 当未指定`modern`时，在打包时Nuxt将自动检测`nuxt start`中的`modern`，自动检测模式为：
+- Nuxt will automatically detect `modern` build in `nuxt start` when `modern` is not specified, auto-detected mode is:
 
 | Mode          | Modern Mode   |
 | ------------- |:-------------:|
 | universal     | server        |
 | spa           | client        |
 
-- 在使用`nuxt generate`时，`modern mode`只有`client`
-- 使用 [`build.crossorigin`](/api/configuration-build#crossorigin) 在`<link>` 和 `<script>` 中设置 `crossorigin` 属性
+- Modern mode for `nuxt generate` can only be `client`
+- Use [`build.crossorigin`](/api/configuration-build#crossorigin) to set `crossorigin` attribute in `<link>` and `<script>`
 
-> 请参阅 [Phillip Walton's excellent post](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) 来了解更多关于modern builds信息.
+> Please refer [Phillip Walton's excellent post](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) for more knowledge regarding modern builds.

@@ -1,16 +1,17 @@
 ---
 title: "API: The loading indicator Property"
-description: 在SPA页面加载时显示不同加载进度条！
+description: Show fancy loading indicator while SPA page is loading!
 ---
 
-# loadingIndicator 属性
+# The loadingIndicator Property
 
-> 在SPA页面加载时显示不同加载进度条！
+> Show fancy loading indicator while SPA page is loading!
 
-在SPA模式下运行Nuxt.js时，第一页加载时没有来自服务器端的内容。因此，我们可能会显示一个加载进度，而不是在页面加载时显示空白页面。
-此属性可以有3种不同的类型：`string`或`false`或`object`。如果提供了`string`值，则将其转换为`object`样式。
+When running Nuxt.js in SPA mode, there is no content from the server side on the first page load. So, instead of showing a blank page while the page loads, we may show a spinner.
 
-默认值为:
+This property can have 3 different types: `string` or `false` or `object`. If a string value is provided it is converted to object style.
+
+Default value is:
 ```js
 {
   name: 'circle',
@@ -19,9 +20,9 @@ description: 在SPA页面加载时显示不同加载进度条！
 }
 ```
 
-## 内置加载器样式
+## Built-in indicators
 
-这些指标来自令人敬佩的[Spinkit](http://tobiasahlin.com/spinkit)项目。您可以使用其demo页面预览加载进度样式。
+These indicators are ported from awesome [Spinkit](http://tobiasahlin.com/spinkit) project. You can use its demo page to preview spinners.
 
 - circle
 - cube-grid
@@ -35,10 +36,10 @@ description: 在SPA页面加载时显示不同加载进度条！
 - three-bounce
 - wandering-cubes
 
-内置加载器样式支持 `color` 和 `background` 配置.
+Built-in indicators support `color` and `background` options.
 
-## 自定义加载器
+## Custom indicators
 
-如果您需要自己的特殊加载器，`String`值或`Name`键也可以是指标源代码的`html`模板的路径！所有选项也都传递给模板。
+If you need your own special indicator, a String value or Name key can also be a path to an html template of indicator source code! All of the options are passed to the template, too.
 
-如果您需要基础配置，Nuxt的内置[源代码](https://github.com/nuxt/nuxt.js/tree/dev/packages/vue-app/template/views/loading)也可用！
+Nuxt's built-in [source code](https://github.com/nuxt/nuxt.js/tree/dev/packages/vue-app/template/views/loading) is also available if you need a base!

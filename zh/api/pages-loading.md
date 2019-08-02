@@ -1,17 +1,17 @@
 ---
-title: "API: loading 属性"
-description: "`loading` 属性为您提供了禁用特定页面上的默认加载进度条的选项。"
+title: "API: The loading Property"
+description: The `loading` property gives you the option to disable the default loading progress bar on a specific page.
 ---
 
-# loading 属性
+# The loading Property
 
-> loading属性为您提供了禁用特定页面上的默认加载进度条的选项。
+> The loading property gives you the option to disable the default loading progress bar on a specific page.
 
-- **类型:** `Boolean` (默认: `true`)
+- **Type:** `Boolean` (default: `true`)
 
-默认情况下，Nuxt.js使用自己的组件来显示路由跳转之间的进度条。
+By default, Nuxt.js uses its own component to show a progress bar between the routes.
 
-您可以通过[Configuration的加载选项](/api/configuration-loading)全局禁用或自定义它，但也可以通过将 `loading` 属性设置为 `false` 来禁用特定页面：
+You can disable or customize it globally through the [Configuration's loading option](/api/configuration-loading), but also disable it for specific pages by setting the `loading` property to `false` :
 
 ```html
 <template>
@@ -25,4 +25,4 @@ export default {
 </script>
 ```
 
-您可以找到官方示例来使用此属性 [点击这里](/examples/custom-page-loading).
+You can find an official example using this property [here](/examples/custom-page-loading).

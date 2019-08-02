@@ -1,22 +1,26 @@
 ---
-title: "API: router 属性配置"
-description: router 属性让你可以个性化配置 Nuxt.js 应用的路由。
+title: "API: The router Property"
+description: The router property lets you customize Nuxt.js router.
 ---
 
-# router 属性配置
+# The router Property
 
-> router 属性让你可以个性化配置 Nuxt.js 应用的路由（[vue-router](https://router.vuejs.org/zh-cn/)）。
+> The router property lets you customize Nuxt.js router ([vue-router](https://router.vuejs.org/en/)).
 
 ## base
 
-- 类型： `String`
-- 默认值： `'/'`
+- Type: `String`
+- Default: `'/'`
 
-应用的根URL。举个例子，如果整个单页面应用的所有资源可以通过 `/app/` 来访问，那么 `base` 配置项的值需要设置为 `'/app/'`。
+The base URL of the app. For example, if the entire single page application is served under `/app/`, then base should use the value `'/app/'`.
 
-例如 (`nuxt.config.js`)：
+This can be useful if you need to serve Nuxt as a different context root, from within a bigger Web site. Notice that you may, or may not set up a Front Proxy Web Server.
+
+If you want to have a redirect to `router.base`, you can do so [using a Hook, see *Redirect to router.base when not on root*](/api/configuration-hooks#redirect-to-router-base-when-not-on-root).
+
+Example (`nuxt.config.js`):
 ```js
-module.exports = {
+export default {
   router: {
     base: '/app/'
   }
@@ -25,20 +29,21 @@ module.exports = {
 
 <div class="Alert Alert-blue">
 
-`base` 被设置后，Nuxt.js 会自动将它添加至页面中： `<base href="{{ router.base }}"/>`。
+When `base` is set, Nuxt.js will also add in the document header `<base href="{{ router.base }}"/>`.
 
 </div>
 
-> 该配置项的值会被直接传给 vue-router 的[构造器](https://router.vuejs.org/zh-cn/api/options.html)。
+> This option is given directly to the vue-router [base](https://router.vuejs.org/api/#base).
 
 ## routeNameSplitter
 
-- 类型: `String`
-- 默认: `'-'`
+- Type: `String`
+- Default: `'-'`
 
-您可能希望更改Nuxt.js使用的路由名称之间的分隔符。您可以通过配置文件中的`routeNameSplitter`选项执行此操作。想象一下，我们有页面文件`pages/posts/_id.vue`。Nuxt将以编程方式生成路由名称，在本例中为`posts-id`。因此，将`routeNameSplitter`配置修改为`/`，这样路由名称生成为`posts/id`。
+You may want to change the separator between route names that Nuxt.js uses. You can do so via the `routeNameSplitter` option in your configuration file.
+Imagine we have the page file `pages/posts/_id.vue`. Nuxt will generate the route name programatically, in this case `posts-id`. Changing the `routeNameSplitter` config to `/` the name will therefore change to `posts/id`.
 
-例如 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
 ```js
 export default {
   router: {
@@ -49,11 +54,11 @@ export default {
 
 ## extendRoutes
 
-- 类型: `Function`
+- Type: `Function`
 
-您可能希望扩展`Nuxt.js`创建的路由。您可以通过`extendRoutes`选项执行此操作。
+You may want to extend the routes created by Nuxt.js. You can do so via the `extendRoutes` option.
 
-例如添加自定义路由:
+Example of adding a custom route:
 
 `nuxt.config.js`
 ```js
@@ -70,34 +75,47 @@ export default {
 }
 ```
 
-路由的模式应该遵循[vue-router](https://router.vuejs.org/en/)模式。
+The schema of the route should respect the [vue-router](https://router.vuejs.org/en/) schema.
+
+## fallback
+
+- Type: `boolean`
+- Default: `false`
+
+Controls whether the router should fallback to hash mode when the browser does not support history.pushState but mode is set to history.
+
+Setting this to false essentially makes every router-link navigation a full page refresh in IE9. This is useful when the app is server-rendered and needs to work in IE9, because a hash mode URL does not work with SSR.
+
+> This option is given directly to the vue-router [fallback](https://router.vuejs.org/api/#fallback).
 
 ## linkActiveClass
 
-- 类型： `String`
-- 默认值： `'nuxt-link-active'`
+- Type: `String`
+- Default: `'nuxt-link-active'`
 
-全局配置 [`<nuxt-link>`](/api/components-nuxt-link) 组件默认的激活类名。
+Globally configure [`<nuxt-link>`](/api/components-nuxt-link) default active class.
 
-例如 (`nuxt.config.js`)：
+Example (`nuxt.config.js`):
+
 ```js
-module.exports = {
+export default {
   router: {
     linkActiveClass: 'active-link'
   }
 }
 ```
 
-> 该配置项的值会被直接传给 vue-router 的[构造器](https://router.vuejs.org/zh-cn/api/options.html)。
+> This option is given directly to the vue-router [linkactiveclass](https://router.vuejs.org/api/#linkactiveclass).
 
 ## linkExactActiveClass
 
-- 类型: `String`
-- 默认: `'nuxt-link-exact-active'`
+- Type: `String`
+- Default: `'nuxt-link-exact-active'`
 
-全局配置 [`<nuxt-link>`](/api/components-nuxt-link) 默认的active class。
+Globally configure [`<nuxt-link>`](/api/components-nuxt-link) default exact active class.
 
-例如 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
+
 ```js
 export default {
   router: {
@@ -106,16 +124,16 @@ export default {
 }
 ```
 
-> 此选项直接提供给vue-router [linkexactactiveclass](https://router.vuejs.org/api/#linkexactactiveclass).
+> This option is given directly to the vue-router [linkexactactiveclass](https://router.vuejs.org/api/#linkexactactiveclass).
 
 ## linkPrefetchedClass
 
-- 类型: `String`
-- 默认: `false`
+- Type: `String`
+- Default: `false`
 
-全局配置[`<nuxt-link>`](/api/components-nuxt-link)默认值(默认情况下禁用功能)
+Globally configure [`<nuxt-link>`](/api/components-nuxt-link) default prefetch class (feature disabled by default)
 
-例子 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
 
 ```js
 export default {
@@ -127,18 +145,19 @@ export default {
 
 ## middleware
 
-- 类型： `String` 或 `Array`
-  - 数值元素类型: `String`
+- Type: `String` or `Array`
+  - Items: `String`
 
-为应用的每个页面设置默认的中间件。
+Set the default(s) middleware for every page of the application.
 
-例如：
+Example:
 
 `nuxt.config.js`
+
 ```js
-module.exports = {
+export default {
   router: {
-    // 在每页渲染前运行 middleware/user-agent.js 中间件的逻辑
+    // Run the middleware/user-agent.js on every page
     middleware: 'user-agent'
   }
 }
@@ -147,38 +166,89 @@ module.exports = {
 `middleware/user-agent.js`
 ```js
 export default function (context) {
-  // 给上下文对象增加 userAgent 属性（增加的属性可在 `asyncData` 和 `fetch` 方法中获取）
+  // Add the userAgent property in the context (available in `asyncData` and `fetch`)
   context.userAgent = process.server ? context.req.headers['user-agent'] : navigator.userAgent
 }
 ```
 
-了解更多关于中间件的信息，请参考 [中间件指引文档](/guide/routing#中间件)。
+To learn more about the middleware, see the [middleware guide](/guide/routing#middleware).
 
 ## mode
 
-- 类型：`String`
-- 默认值：`'history'`
+- Type: `String`
+- Default: `'history'`
 
-配置路由的模式，鉴于服务端渲染的特性，不建议修改该配置。
+Configure the router mode, this is not recommended to change it due to server-side rendering.
 
-示例 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
+
 ```js
-module.exports = {
+export default {
   router: {
     mode: 'hash'
   }
 }
 ```
 
-> 该配置项的值会被直接传给 vue-router 的[构造器](https://router.vuejs.org/zh-cn/api/options.html)。
+> This option is given directly to the vue-router [mode](https://router.vuejs.org/api/#mode).
+
+## parseQuery / stringifyQuery
+
+- Type: `Function`
+
+Provide custom query string parse / stringify functions. Overrides the default.
+
+> This option is given directly to the vue-router [parseQuery / stringifyQuery](https://router.vuejs.org/api/#parsequery-stringifyquery).
+
+## prefetchLinks
+
+> Added with Nuxt v2.4.0
+
+- Type: `Boolean`
+- Default: `true`
+
+Configure `<nuxt-link>` to prefetch the *code-splitted* page when detected within the viewport.
+Requires [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to be supported (see [CanIUse](https://caniuse.com/#feat=intersectionobserver)).
+
+We recommend conditionally polyfilling this feature with a service like [Polyfill.io](https://polyfill.io):
+
+`nuxt.config.js`
+
+```js
+export default {
+  head: {
+    script: [
+      { src: 'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver', body: true }
+    ]
+  }
+}
+```
+
+To disable the prefetching on a specific link, you can use the `no-prefetch` prop:
+
+```html
+<nuxt-link to="/about" no-prefetch>About page not pre-fetched</nuxt-link>
+```
+
+To disable the prefetching on all links, set the `prefetchLinks` to `false`:
+
+```js
+// nuxt.config.js
+export default {
+  router: {
+    prefetchLinks: false
+  }
+}
+```
 
 ## scrollBehavior
 
-- 类型： `Function`
+- Type: `Function`
 
-`scrollBehavior` 配置项用于个性化配置跳转至目标页面后的页面滚动位置。每次页面渲染后都会调用 `scrollBehavior` 配置的方法。
+The `scrollBehavior` option lets you define a custom behavior for the scroll position between the routes. This method is called every time a page is rendered.
 
-`scrollBehavior` 的默认配置为：
+By default, the scrollBehavior option is set to:
+
 ```js
 const scrollBehavior = function (to, from, savedPosition) {
   // if the returned position is falsy or an empty object,
@@ -228,11 +298,11 @@ const scrollBehavior = function (to, from, savedPosition) {
 }
 ```
 
-举个例子，我们可以配置所有页面渲染后滚动至顶部：
+Example of forcing the scroll position to the top for every routes:
 
-`nuxt.config.js`：
+`nuxt.config.js`
 ```js
-module.exports = {
+export default {
   router: {
     scrollBehavior: function (to, from, savedPosition) {
       return { x: 0, y: 0 }
@@ -240,64 +310,3 @@ module.exports = {
   }
 }
 ```
-
-> 该配置项的值会被直接传给 vue-router 的[构造器](https://router.vuejs.org/zh-cn/api/options.html)。
-
-## parseQuery / stringifyQuery
-
-- 类型: `Function`
-
-提供自定义查询字符串解析/字符串化功能。覆盖默认值。
-
-> 此选项直接提供在vue-router [parseQuery / stringifyQuery](https://router.vuejs.org/api/#parsequery-stringifyquery).
-
-## prefetchLinks
-
-> Nuxt v2.4.0 添加
-
-- 类型: `Boolean`
-- 默认: `true`
-
-在视图中检测到时，配置`<nuxt-link>`用来预获取*代码分割*页面。需要支持[IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)(参阅 [CanIUse](https://caniuse.com/#feat=intersectionobserver))。
-
-我们建议使用[Polyfill.io](https://polyfill.io)等服务有条件地填充此功能：
-
-`nuxt.config.js`
-
-```js
-export default {
-  head: {
-    script: [
-      { src: 'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver', body: true }
-    ]
-  }
-}
-```
-
-要禁用特定链接上的预取，可以使用`no-prefetch` 属性：
-
-```html
-<nuxt-link to="/about" no-prefetch>About page not pre-fetched</nuxt-link>
-```
-
-要全局禁用所有链接上的预取，请将`prefetchLinks`设置为`false`：
-
-```js
-// nuxt.config.js
-export default {
-  router: {
-    prefetchLinks: false
-  }
-}
-```
-
-## fallback
-
-- 类型: `boolean`
-- 默认: `false`
-
-当浏览器不支持history.pushState但模式设置为history时，控制路由器是否应回退。
-
-将此设置为`false`实质上会使每个路由器链接导航在IE9中刷新整页。当应用程序是服务器呈现并且需要在IE9中工作时，这很有用，因为**hash模式**URL不适用于SSR。
-
-> 此选项直接提供在vue-router [fallback](https://router.vuejs.org/api/#fallback).

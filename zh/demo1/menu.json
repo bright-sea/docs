@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Animation Demos",
+    "links": [
+      { "to": "", "name": "Overall" },
+      { "to": "/load-memory-data", "name": "Load memory mode source" },
+      { "to": "/load-olap-data", "name": "Load olap mode source" },
+      { "to": "/memory-sheet", "name": "Analyst memory source" }
+    ]
+  },
+  {
+    "title": "Live demos",
+    "links": [
+      { "to": "/custom-header", "name": "Custom Header" },
+      { "to": "/web-component", "name": "Web Component" },
+      { "to": "/jquery", "name": "Jquery framework" },
+      { "to": "/plain", "name": "Without any framework" },
+      { "to": "/react", "name": "react" }
+    ]
+  }
+]

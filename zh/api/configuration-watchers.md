@@ -1,26 +1,26 @@
 ---
-title: "API: watchers 属性"
-description: watchers 属性可用来覆盖 Nuxt.js 默认的 watchers 配置。
+title: "API: The watchers Property"
+description: The watchers property lets you overwrite watchers configuration.
 ---
 
-# watchers 配置
+# The watchers Property
 
-- 类型： `Object`
-- 默认值： `{}`
+- Type: `Object`
+- Default: `{}`
 
-> watchers 属性可用来覆盖 Nuxt.js 默认的 watchers 配置。
+> The watchers property lets you overwrite watchers configuration in your nuxt.config.js.
 
 ## chokidar
 
-- 类型： `Object`
-- 默认值： `{}`
+- Type: `Object`
+- Default: `{}`
 
-了解更多关于 chokidar 的配置项，请移步 [chokidar API](https://github.com/paulmillr/chokidar#api)。
+To learn more about chokidar options, see the [chokidar API](https://github.com/paulmillr/chokidar#api).
 
 ## webpack
 
-- 类型： `Object`
-- 默认值：
+- Type: `Object`
+- Default:
 
 ```js
 watchers: {
@@ -31,4 +31,4 @@ watchers: {
 }
 ```
 
-了解更多关于 webpack 的 watchoptions， 请移步 [webpack 文档](https://webpack.js.org/configuration/watch/#watchoptions)。
+To learn more about webpack watchoptions, see the [webpack documentation](https://webpack.js.org/configuration/watch/#watchoptions).

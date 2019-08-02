@@ -1,19 +1,20 @@
 ---
 title: "API: nuxt.render(req, res)"
-description: 你可以把 Nuxt.js 当做是中间件来集成到已有的 Node.js 应用中。
+description: You can use Nuxt.js as a middleware for your Node.js server.
 ---
 
 # nuxt.render(req, res)
 
-- 类型： `Function`
-- 参数：
+- Type: `Function`
+- Arguments:
   1. [Request](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
   2. [Response](https://nodejs.org/api/http.html#http_class_http_serverresponse)
-- 返回： `Promise`
+- Returns: `Promise`
 
-> 你可以通过 `nuxt.render` 函数，把 Nuxt.js 变成你 Node.js 服务端的中间件。
+> You can use Nuxt.js as a middleware with `nuxt.render` for your node.js server.
 
-例如，结合 [Express.js](https://github.com/expressjs/express) 使用：
+Example with [Express](https://github.com/expressjs/express):
+
 ```js
 const { Nuxt, Builder } = require('nuxt')
 
@@ -21,15 +22,15 @@ const app = require('express')()
 const isProd = (process.env.NODE_ENV === 'production')
 const port = process.env.PORT || 3000
 
-// 用指定的配置对象实例化 Nuxt.js
-let config = require('./nuxt.config.js')
+// We instantiate Nuxt.js with the options
+const config = require('./nuxt.config.js')
 config.dev = !isProd
 const nuxt = new Nuxt(config)
 
-// 用 Nuxt.js 渲染每个路由
+// Render every route with Nuxt.js
 app.use(nuxt.render)
 
-// 在开发模式下启用编译构建和热加载
+// Build only in dev mode with hot-reloading
 if (config.dev) {
   new Builder(nuxt).build()
   .then(listen)
@@ -39,7 +40,7 @@ else {
 }
 
 function listen() {
-  // 服务端监听
+  // Listen the server
   app.listen(port, '0.0.0.0')
   console.log('Server listening on `localhost:' + port + '`.')
 }
@@ -47,6 +48,6 @@ function listen() {
 
 <div class="Alert">
 
-建议把 **nuxt.render** 放到中间件列表的最后面，因为它不会再调用 next() 方法，而是直接处理你 web 应用的页面渲染。
+It's recommended to call `nuxt.render` at the end of your middlewares since it will handle the rendering of your web application and won't call `next()`
 
 </div>

@@ -1,16 +1,16 @@
 ---
-title: "API:globalName 属性"
-description: Nuxt.js允许您自定义主HTML模板中使用的全局ID以及主Vue实例名称和其他选项。
+title: "API: The globalName Property"
+description: Nuxt.js lets you customize the global ID used in the main HTML template as well as the main Vue instance name and other options.
 ---
 
-# globalName 属性
+# The globalName Property
 
-> Nuxt.js允许您自定义主HTML模板中使用的全局ID以及主Vue实例名称和其他选项。
+> Nuxt.js lets you customize the global ID used in the main HTML template as well as the main Vue instance name and other options.
 
-- 类型: `String`
-- 默认: `nuxt`
+- Type: `String`
+- Default: `nuxt`
 
-例子:
+Example:
 
 `nuxt.config.js`
 
@@ -20,14 +20,14 @@ description: Nuxt.js允许您自定义主HTML模板中使用的全局ID以及主
 }
 ```
 
-它必须是有效的JavaScript标识符。
+It needs to be a valid JavaScript identifier.
 
-## globals 属性
+## The globals property
 
-> 自定义默认情况下基于`globalName`的特定全局名称。
+> Customizes specific global names which are based on `globalName` by default.
 
-- 类型: `Object`
-- 默认:
+- Type: `Object`
+- Default:
 
 ```js
 {

@@ -5,13 +5,13 @@ description: Nuxt ModuleContainer Class
 
 # ModuleContainer Class
 
-- 来源: **[core/module.js](https://github.com/nuxt/nuxt.js/blob/dev/packages/core/src/module.js)**
+- Source: **[core/module.js](https://github.com/nuxt/nuxt.js/blob/dev/packages/core/src/module.js)**
 
-所有[模块](/guide/modules)都将在`ModuleContainer`实例的`context`调用。
+All [modules](/guide/modules) will be called within context of `ModuleContainer` instance.
 
 ## Tapable plugins
 
-我们可以在某些生命周期事件中注册hooks。
+We can register hooks on certain life cycle events.
 
 ```js
 nuxt.moduleContainer.plugin('ready', async moduleContainer => {
@@ -19,7 +19,7 @@ nuxt.moduleContainer.plugin('ready', async moduleContainer => {
 })
 ```
 
-在 [modules](/guide/modules) 的`context`中我们可以使用它:
+Inside [modules](/guide/modules) context we can use this instead:
 
 ```js
 this.plugin('ready', async moduleContainer => {
@@ -27,41 +27,41 @@ this.plugin('ready', async moduleContainer => {
 })
 ```
 
-插件 | 参数       | 说明
+Plugin | Arguments       | When
 -------|-----------------|-----------------------------------------------------
-`ready`| moduleContainer | `nuxt.config.js`中的所有模块都已初始化
+`ready`| moduleContainer | All modules in `nuxt.config.js` has been initialized
 
 
-## 方法
+## Methods
 
-### ~~添加Vendor(vendor)~~
+### addVendor (vendor)
 
-**`vendor`已经废弃不再使用**
+**Deprecated as `vendor` isn't used anymore**
 
-添加到`options.build.vendor`并应用唯一插件过滤器。
+Adds to `options.build.vendor` and apply unique filter.
 
-### 添加到模板中 (template)
+### addTemplate (template)
 
 - **template**: `String` or `Object`
     - `src`
     - `options`
     - `fileName`
 
-在构建到项目`buildDir` (`.nuxt`)期间使用[lodash 模板](https://lodash.com/docs/4.17.4#template)渲染指定模板。
+Renders given template using [lodash template](https://lodash.com/docs/4.17.4#template) during build into project `buildDir` (`.nuxt`).
 
-如果未提供`fileName`或`template`为`string`，则目标文件名默认为`[dirName].[fileName].[pathHash].[ext]`。
+If `fileName` is not provided or `template` is string, target file name defaults to `[dirName].[fileName].[pathHash].[ext]`.
 
-这个方法将返回 `{ dist, src, options }` 对象.
+This method returns final `{ dist, src, options }` object.
 
-### 添加插件 (template)
+### addPlugin (template)
 
-使用`addTemplate`注册插件并将其添加到 `plugins[]`选项。
+Registers a plugin using `addTemplate` and adds it to first of `plugins[]` option.
 
-您可以使用`template.ssr: false`来禁用包含在SSR中的插件。
+You can use `template.ssr: false` to disable plugin including in SSR bundle.
 
-### 添加服务器端渲染中间件 (middleware)
+### addServerMiddleware (middleware)
 
-将中间件插入 [options.serverMiddleware](/api/configuration-servermiddleware).
+Pushes middleware into [options.serverMiddleware](/api/configuration-servermiddleware).
 
 ### extendBuild (fn)
 
@@ -69,21 +69,27 @@ Allows easily extending webpack build config by chaining [options.build.extend](
 
 ### extendRoutes (fn)
 
-允许通过链接[options.build.extendRoutes](/api/configuration-router#extendroutes)函数轻松扩展webpack构建配置。
+Allows easily extending routes by chaining [options.build.extendRoutes](/api/configuration-router#extendroutes) function.
 
-### 添加模块 (moduleOpts, requireOnce)
+### addModule (moduleOpts, requireOnce)
 
-注册模块。`moduleOpts`可以是`string`或`[src, options]`。如果`requireOnce`为`true`且已解析的模块导出`meta`阻止两次注册相同的模块。
+*Async function*
+
+Registers a module. `moduleOpts` can be a string or an array (`[src, options]`). 
+If `requireOnce` is `true` and the resolved module exports `meta`, it prevents registering same module twice.
 
 ### requireModule (moduleOpts)
 
-`addModule(moduleOpts, true)`
+*Async function*
+
+Is a shortcut for `addModule(moduleOpts, true)`
 
 ## Hooks
 
-我们可以在某些生命周期事件中注册钩子。
+We can register hooks on certain life cycle events.
 
 Hook                      | Arguments                  | When
 --------------------------|----------------------------|--------------------------------------------------------------------------------------
- `modules:before`         | (moduleContainer, options) | 在创建ModuleContainer类之前调用​​，对重载方法和选项很有用。
- `modules:done`           | (moduleContainer)          | 加载所有模块时调用。
+ `modules:before`         | (moduleContainer, options) | Called before creating ModuleContainer class, useful to overload methods and options.
+ `modules:done`           | (moduleContainer)          | Called when all modules have been loaded.
+

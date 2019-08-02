@@ -1,15 +1,15 @@
 ---
-title: "API: modules 属性"
-description: modules是Nuxt.js扩展，可以扩展它的核心功能并添加无限的集成。
+title: "API: The modules Property"
+description: Modules are Nuxt.js extensions which can extend its core functionality and add endless integrations.
 ---
 
-# modules 属性
+# The modules Property
 
-- 类型: `Array`
+- Type: `Array`
 
-> modules是Nuxt.js扩展，可以扩展它的核心功能并添加无限的集成。[了解更多](/guide/modules)
+> Modules are Nuxt.js extensions which can extend it's core functionality and add endless integrations.  [Learn More](/guide/modules)
 
-例如 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
 
 ```js
 export default {
@@ -28,11 +28,13 @@ export default {
   ]
 }
 ```
+Module developers usually provide additionally needed steps and details for usage.
 
-模块开发通常会提供额外需要的步骤和使用细节。
+Nuxt.js tries to resolve each item in the modules array using node require path (in the `node_modules`) and then will be resolved from project `srcDir` if `~` alias is used. Modules are executed sequentially so the order is important.
 
-Nuxt.js尝试使用节点需求路径（在`node_modules`中）解析`modules`数组中的每个项目，如果使用`~`别名，则将从项目`srcDir`中解析。模块按顺序执行，因此顺序很重要。
+Modules should export a function to enhance nuxt build/runtime and optionally return a promise until their job is finished.
+Note that they are required at runtime so should be already transpiled if depending on modern ES6 features.
 
-模块应该导出一个函数来增强**nuxt 构建 / 运行**，并可选择返回一个`promise`，直到它们的工作完成。请注意，它们在运行时是必需的，因此如果依赖于现代`ES6`功能，应该已经进行了转换。
 
-有关它们如何工作或是否有兴趣开发自己的模块的更多详细信息，请参阅[模块指南](/guide/modules)。此外，我们还提供了一个官方[Modules](https://github.com/nuxt-community/awesome-nuxt#modules)部分，列出了由Nuxt社区制作的数十个生产模块。
+Please see [Modules Guide](/guide/modules) for more detailed information on how they work or if interested developing your own module.
+Also we have provided an official [Modules](https://github.com/nuxt-community/awesome-nuxt#modules) Section listing dozens of production ready modules made by Nuxt Community.

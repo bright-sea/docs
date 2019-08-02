@@ -1,12 +1,12 @@
 ---
-title: "API: dir 属性"
-description: 定义Nuxt.js应用程序的自定义目录
+title: "API: The dir Property"
+description: Define the custom directories for your Nuxt.js application
 ---
 
-# dir 属性
+# The dir Property
 
-- 类型: `Object`
-- 默认:
+- Type: `Object`
+- Default:
 
 ```js
 {
@@ -19,9 +19,9 @@ description: 定义Nuxt.js应用程序的自定义目录
 }
 ```
 
-> 定义Nuxt.js应用程序的自定义目录
+> Define the custom directories for your Nuxt.js application
 
-例如 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
 
 ```js
 export default {

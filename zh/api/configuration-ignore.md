@@ -1,13 +1,14 @@
 ---
-title: "API: ignore 属性"
-description: 为Nuxt.js应用程序自定义忽略文件
+title: "API: The ignore Property"
+description: Define the ignore files for your Nuxt.js application
 ---
 
 # .nuxtignore
 
-您可以使用`.nuxtignore`文件让Nuxt.js在构建打包阶段忽略项目根目录(`rootDir`)中的布局(`layout`)，页面(`page`)，`store`和中间件(`middleware`)文件。`.nu​​xtignore`文件与.gitignore和.eslintignore文件的规范相同，其中每一行都是一个glob模式，指定应该忽略哪些文件。
+You can use a `.nuxtignore` file to let Nuxt.js ignore `layout`, `page`, `store` and `middleware` files in your project’s root directory (`rootDir`) during the build phase.
+The `.nuxtignore` file is subject to the same specification as `.gitignore` and `.eslintignore` files, in which each line is a glob pattern indicating which files should be ignored.
 
-例如:
+For example:
 
 ```
 # ignore layout foo.vue
@@ -30,20 +31,24 @@ middleware/foo/*.js
 !middleware/foo/bar.js
 ```
 
-> 在[gitignore doc](https://git-scm.com/docs/gitignore)中查看关于规范中的更多配置细节
+> More details about the spec are in [gitignore doc](https://git-scm.com/docs/gitignore)
 
-# ignorePrefix 属性
+# The ignorePrefix Property
 
-- 类型: `String`
-- 默认: `'-'`
+- Type: `String`
+- Default: `'-'`
 
-> 如果文件名以`ignorePrefix`指定的前缀开头，则在构建打包期间将忽略pages / layout / middleware /或store /中的任何文件
+> Any file in pages/ layout/ middleware/ or store/ will be ignored during building if its filename starts with the prefix specified by `ignorePrefix`.
 
-默认情况下，所有以 `-` 开头的文件都将被忽略，例如`store / -foo.js`和`pages / -bar.vue`。
+By default all files which start with `-` will be ignored, such as `store/-foo.js` and `pages/-bar.vue`. This allows for co-locating tests, utilities, and components with their callers without themselves being converted into routes, stores, etc.
 
-# ignore 属性
+**Note:** This option will be deprecated in Nuxt.js 3. We recommend using a `.nuxtignore` file instead.
 
-- 类型: `Array`
-- 默认: `['**/*.test.*', '**/*.spec.*']`
+# The ignore Property
 
-> 比`ignorePrefix`更简单：在构建中将忽略匹配在`ignore`内指定的`ignore`模式的所有文件。
+- Type: `Array`
+- Default: `['**/*.test.*']`
+
+> More customizable than `ignorePrefix`: all files matching glob patterns specified inside `ignore` will be ignored in building.
+
+**Note:** This option will be deprecated in Nuxt.js 3. We recommend using a `.nuxtignore` file instead.

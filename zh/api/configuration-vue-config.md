@@ -1,18 +1,18 @@
 ---
-title: "API: vue.config 属性"
-description: Vue.config的配置对象
+title: "API: The vue.config Property"
+description: A config object for Vue.config
 ---
 
 
-# vue.config 属性
+# The vue.config Property
 
-- 类型: `Object`
-- 默认: `{ silent: !isDev, performance: isDev }`
+- Type: `Object`
+- Default: `{ silent: !isDev, performance: isDev }`
 
-> vue.config属性为`Vue.config`提供直接配置
+> The vue.config property provides a direct configuration bridge for the `Vue.config`
 
 
-**示例**
+**Example**
 
 ```js
 export default {
@@ -25,7 +25,7 @@ export default {
 }
 ```
 
-将配置以下Vue.config：
+This configuration will lead to the following Vue.config:
 
 ``` js
 Vue.config.productionTip // true
@@ -35,4 +35,4 @@ Vue.config.performance // isDev [default value]
 ```
 
 
-了解更多关于 `Vue.config` API, 请查看 [official Vue 文档](https://vuejs.org/v2/api/#Global-Config)
+To learn more about the `Vue.config` API, check out the [official Vue documentation](https://vuejs.org/v2/api/#Global-Config)

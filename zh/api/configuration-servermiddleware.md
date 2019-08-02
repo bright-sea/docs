@@ -1,24 +1,39 @@
 ---
-title: "API: serverMiddleware 属性"
-description: 定义服务器端渲染中间件。
+title: "API: The serverMiddleware Property"
+description: Define server-side middleware.
 ---
 
-# 服务器端渲染中间件(serverMiddleware) 属性
+# The serverMiddleware Property
 
-- 类型: `Array`
-    - Items: `String` 或 `Object` 或 `Function`
+- Type: `Array`
+    - Items: `String` or `Object` or `Function`
 
-Nuxt在内部创建一个[连接](https://github.com/senchalabs/connect)实例，所以我们可以将我们的中间件注册到它的堆栈，并有机会提供更多的路由，如API，而无需**外部服务器**。因为连接本身是一个中间件，所以注册的中间件既可以用于`nuxt start`，也可以用作具有编程用法的中间件，如[express-template](https://github.com/nuxt-community/express-template)。Nuxt [Modules](/guide/modules)还可以使用[this.addServerMiddleware()](/api/internals-module-container#addservermiddleware-middleware-)设置`serverMiddleware`。
+Nuxt internally creates a [connect](https://github.com/senchalabs/connect) instance that we can add our own custom middleware to. This allows us to register additional routes (typically `/api` routes) **without need for an external server**.
 
-## 服务器端渲染中间件(serverMiddleware) vs 中间件(middleware)!
+Because connect itself is a middleware, registered middleware will work with both `nuxt start`
+and also when used as a middleware with programmatic usages like [express-template](https://github.com/nuxt-community/express-template).
+Nuxt [Modules](/guide/modules) can also provide `serverMiddleware`
+using [this.addServerMiddleware()](/api/internals-module-container#addservermiddleware-middleware-)
 
-不要将它与客户端或SSR中Vue在每条路由之前调用的[routes middleware](/guide/routing#middleware)混淆。`serverMiddleware`只是在vue-server-renderer**之前**在服务器端运行，可用于服务器特定的任务，如处理API请求或服务资产。
+Additional to them, we introduced a `prefix` option which defaults to `true`. It will add the router base to your server middlewares.
 
-## 用法
+**Example:**
 
-如果中间件是`String`，Nuxt.js将尝试自动解析它。
+* Server middleware path: `/api`
+* Router base: `/admin`
+* With `prefix: true` (default): `/admin/api`
+* With `prefix: false`: `/api`
 
-例如 (`nuxt.config.js`):
+## serverMiddleware vs middleware!
+
+Don't confuse it with [routes middleware](/guide/routing#middleware) which are called before each route by Vue in Client Side or SSR.
+Middleware listed in the `serverMiddleware` property runs server-side **before** `vue-server-renderer` and can be used for server specific tasks like handling API requests or serving assets.
+
+## Usage
+
+If middleware is String Nuxt.js will try to automatically resolve and require it.
+
+Example (`nuxt.config.js`):
 
 ```js
 import serveStatic from 'serve-static'
@@ -38,30 +53,31 @@ export default {
 ```
 
 <p class="Alert Alert--danger">
-    <b>提示! </b>
-    如果您不希望中间件注册所有路由，则必须使用具有特定路径的`object`，否则nuxt默认处理程序将不起作用！
+    <b>HEADS UP! </b>
+    If you don't want middleware to register for all routes you have to use Object form with specific path,
+    otherwise nuxt default handler won't work!
 </p>
 
-## 自定义服务器端渲染中间件 (Server Middleware)
+## Custom Server Middleware
 
-编写自定义中间件也是可能的。有关更多信息，请参阅 [Connect Docs](https://github.com/senchalabs/connect#appusefn).
+It is also possible to write custom middleware. For more information See [Connect Docs](https://github.com/senchalabs/connect#appusefn).
 
 Middleware (`api/logger.js`):
 
 ```js
 export default function (req, res, next) {
-    // req 是 Node.js http request 对象
+    // req is the Node.js http request object
     console.log(req.path)
 
-    // res 是 Node.js http response 对象
+    // res is the Node.js http response object
 
-    //next是一个调用下一个中间件的函数
-    // 如果您的中间件不是最终执行，请不要忘记在最后调用next！
+    // next is a function to call to invoke the next middleware
+    // Don't forget to call next at the end if your middleware is not an endpoint!
     next()
 }
 ```
 
-Nuxt 配置 (`nuxt.config.js`):
+Nuxt Config (`nuxt.config.js`):
 
 ```js
 serverMiddleware: [

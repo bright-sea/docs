@@ -1,48 +1,49 @@
 ---
 title: "API: nuxt.renderRoute(route, context)"
-description: 使用指定的上下文对象渲染指定的路由路径。
+description: Render a specific route with a given context.
 ---
 
 # nuxt.renderRoute(route, context = {})
 
-- 类型： `Function`
-- 参数：
-  1. `String`，带渲染的路由路径
-  2. *可选*, `Object`， 指定的上下文对象，可用的属性键： `req` 和 `res`
-- 返回： `Promise`
+- Type: `Function`
+- Arguments:
+  1. `String` : route to render
+  2. *Optional*, `Object`, context given, available keys: `req` & `res`
+- Returns: `Promise`
   - `html`: `String`
-  - `error`: `null` 或 `Object`
-  - `redirected`: `false` 或 `Object`
+  - `error`: `null` or `Object`
+  - `redirected`: `false` or `Object`
 
-> 使用指定的上下文对象渲染指定的路由路径。
+> Render a specific route with a given context.
 
-和 [nuxt.renderAndGetWindow](/api/nuxt-render-and-get-window) 类似，该方法只用于 [测试目的](guide/development-tools#end-to-end-testing)。
+This method should be used mostly for [test purposes](/guide/development-tools#end-to-end-testing) as well with [`nuxt.renderAndGetWindow`](/api/nuxt-render-and-get-window).
 
 <div class="Alert Alert--orange">
 
-`nuxt.renderRoute` 需在生产模式（dev: false）的编译过程之后才可调用。
+`nuxt.renderRoute` should be executed after the build process in production mode (`dev: false`).
 
 </div>
 
-例如：
+Example:
+
 ```js
-const Nuxt = require('nuxt')
-let config = require('./nuxt.config.js')
+const { Nuxt, Builder } = require('nuxt')
+
+const config = require('./nuxt.config.js')
 config.dev = false
+
 const nuxt = new Nuxt(config)
 
-nuxt.build()
-.then(() => {
-  return nuxt.renderRoute('/')
-})
+new Builder(nuxt)
+.build()
+.then(() => nuxt.renderRoute('/'))
 .then(({ html, error, redirected }) => {
-  // html 类型为 string
+  // `html` will be always a string
 
-  // 当显示 error 视图时，error 的值不为 null。error 对象的格式为:
+  // `error` not null when the error layout is displayed, the error format is:
   // { statusCode: 500, message: 'My error message' }
 
-  // redirected is not false when redirect() has been used in data() or fetch()
-  // 如果 `redirect` 方法已在 `asyncData` 或 `fetch` 方法中调用，redirected 的值非 false，其格式如下：
+  // `redirected` is not `false` when `redirect()` has been used in `asyncData()` or `fetch()`
   // { path: '/other-path', query: {}, status: 302 }
 })
 ```

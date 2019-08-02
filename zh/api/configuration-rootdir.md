@@ -1,21 +1,21 @@
 ---
-title: "API: rootDir 属性配置"
-description: 设置 Nuxt.js 应用的根目录。
+title: "API: The rootDir Property"
+description: Define the workspace of Nuxt.js application
 ---
 
-# rootDir 属性配置
+# The rootDir Property
 
-- 类型： `String`
-- 默认值： `process.cwd()`
+- Type: `String`
+- Default: `process.cwd()`
 
-> 设置 Nuxt.js 应用的根目录。
+> Define the workspace of your Nuxt.js application.
 
-该配置项的值会被 [nuxt 命令行](/guide/commands) 指定的路径参数覆盖（例如：`nuxt my-app/` 会将 `rootDir` 的值覆盖设置为 `my-app/` 目录对应的绝对路径）。
+This property is overwritten by [nuxt commands](/guide/commands) and set to the argument of the command (example: `nuxt my-app/` will set the `rootDir` to `my-app/` with its absolute path).
 
-该配置项一般是 [编码中使用 Nuxt.js](/api/nuxt) 时才会被用到。
+This property should be used when using [Nuxt.js programmatically](/api/nuxt).
 
 <div class="Alert Alert--blue">
 
-该配置项的一个限制是应用的 `node_modules` 目录必须在 `rootDir` 目录内。 应用的源码目录（`srcDir`）则无此限制，具体请查看 [`srcDir` 属性配置](/api/configuration-srcdir)。
+The downside of this option is that your `node_modules` directory should be inside the `rootDir` folder. If you want to set the path of the application without the node_modules, use the [`srcDir` option](/api/configuration-srcdir).
 
 </div>

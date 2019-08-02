@@ -1,15 +1,16 @@
 ---
-title: "API: modulesDir 属性"
-description: 为Nuxt.js应用程序定义modules目录
+title: "API: The modulesDir Property"
+description: Define the modules directory for your Nuxt.js application
 ---
 
-# modulesDir 属性
+# The modulesDir Property
 
-- 类型: `Array`
-- 默认: `['node_modules']`
-> 用于设置路径解析的模块目录，例如：webpack resolveLoading，nodeExternal和postcss。配置路径为相对路径[options.rootDir](/api/configuration-rootdir) (默认: `process.cwd()`).
+- Type: `Array`
+- Default: `['node_modules']`
 
-例如 (`nuxt.config.js`):
+> Used to set the modules directories for path resolving, for example: Webpack's `resolveLoading`, `nodeExternals` and `postcss`. Configuration path is relative to [options.rootDir](/api/configuration-rootdir) (default: `process.cwd()`).
+
+Example (`nuxt.config.js`):
 
 ```js
 export default {
@@ -17,4 +18,5 @@ export default {
 }
 ```
 
-如果您的项目被Yarn工作区样式的mono-repository，则可能需要设置此字段。
+Setting this field may be necessary if your project is organized as a Yarn workspace-styled mono-repository.
+

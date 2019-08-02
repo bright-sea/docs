@@ -1,37 +1,45 @@
 ---
 title: "API: Nuxt(options)"
-description: 你可以把 Nuxt.js 当做是一个负责页面渲染的中间件，集成到已有的应用服务中去。
+description: You can use Nuxt.js programmatically to use it as a middleware giving you the freedom of creating your own server for rendering your web applications.
 ---
 
-# 以编程形式使用 Nuxt.js
+# Using Nuxt.js Programmatically
 
-如果你打算用自己的中间件和 API 运行你的服务端的话，你可以以编程的形式将 Nuxt.js 集成到你原有的应用中去。
-因为 Nuxt.js 基于 ES2015 编写，所以它的代码相对来说更有趣、更易读。它没用到任何的转译器，只依赖于 V8 内核中已经实现的功能。因此，Nuxt.js 需要 Node.js `4.0` 或更高的运行环境。
+You might want to use your own server with your middleware and your API. That's why you can use Nuxt.js programmatically.
 
-你可以这样引入 Nuxt.js:
-```js
-const { Nuxt } = require('nuxt')
-```
-
-### Nuxt(options)
-
-想了解 Nuxt.js 所有的可选项，请查阅「配置」章节的文章。
+You can require Nuxt.js like this:
 
 ```js
-const options = {}
-
-const nuxt = new Nuxt(options)
-nuxt.build()
-.then(() => {
-  // 这里可以用 nuxt.render(req, res) 或者 nuxt.renderRoute(route, context)
-})
+const { Nuxt, Builder } = require('nuxt')
 ```
 
-你可以参考 [nuxt-express](https://github.com/nuxt/express) 和 [adonuxt](https://github.com/nuxt/adonuxt) 这两个新手应用项目以便快速入门。
+## Nuxt Constructor
 
-### 调试信息
+To see the list of options to give to Nuxt.js, see the configuration section.
 
-如果你想显示 Nuxt.js 的调试信息，你可以在应用入口文件的头部加入以下设置：
+```js
+// Require `Nuxt` And `Builder` modules
+const { Nuxt, Builder } = require('nuxt')
+
+// Require Nuxt config
+const config = require('./nuxt.config.js')
+
+// Create a new Nuxt instance
+const nuxt = new Nuxt(config)
+
+// Enable live build & reloading on dev
+if (nuxt.options.dev) {
+  new Builder(nuxt).build()
+}
+
+// We can use `nuxt.render(req, res)` or `nuxt.renderRoute(route, context)`
+```
+
+You can take a look at the [nuxt-express](https://github.com/nuxt/express) and [adonuxt](https://github.com/nuxt/adonuxt) starters to get started quickly.
+
+### Debug logs
+
+If you want to display Nuxt.js logs, you can add the following to the top of your file:
 
 ```js
 process.env.DEBUG = 'nuxt:*'

@@ -1,25 +1,28 @@
 ---
-title: "API: fetch 方法"
-description: fetch 方法用于在渲染页面前填充应用的状态树（store）数据， 与 asyncData 方法类似，不同的是它不会设置组件的数据。
+title: "API: The fetch Method"
+description: The `fetch` method is used to fill the store before rendering the page, it's like the `asyncData` method except it doesn't set the component data.
 ---
 
-# fetch 方法
+# The fetch Method
 
-> fetch 方法用于在渲染页面前填充应用的状态树（store）数据， 与 asyncData 方法类似，不同的是它不会设置组件的数据。
+> The fetch method is used to fill the store before rendering the page, it's like the `asyncData` method except it doesn't set the component data.
 
-- **类型：** `Function`
+- **Type:** `Function`
 
-如果页面组件设置了 `fetch` 方法，它会在组件每次加载前被调用（在服务端或切换至目标路由之前）。
+The `fetch` method, *if set*, is called every time before loading the component (**only for page components**). It will be called server-side once (on the first request to the Nuxt app) and client-side when navigating to further routes. 
 
-`fetch` 方法的第一个参数是页面组件的[上下文对象](/api/#上下文对象) `context`，我们可以用 `fetch` 方法来获取数据填充应用的状态树。为了让获取过程可以异步，你需要**返回一个 Promise**，Nuxt.js 会等这个 promise 完成后再渲染组件。
+The `fetch` method receives [the `context`](/api/context) object as the first argument, we can use it to fetch some data and fill the store. To make the `fetch` method asynchronous, **return a Promise**, Nuxt.js will wait for the promise to be resolved before rendering the component.
+
 
 <div class="Alert Alert--orange">
 
-**警告**: 您无法在内部使用`this`获取**组件实例**，`fetch`是在**组件初始化之前**被调用
+**Warning**: You **don't** have access of the component instance through `this` inside `fetch` because it is called **before initiating** the component.
 
 </div>
 
-例如 `pages/index.vue`：
+
+Example of `pages/index.vue`:
+
 ```html
 <template>
   <h1>Stars: {{ $store.state.stars }}</h1>
@@ -37,7 +40,7 @@ export default {
 </script>
 ```
 
-你也可以使用 `async` 或 `await` 的模式简化代码如下：
+You can also use `async`/`await` to make your code cleaner:
 
 ```html
 <template>
@@ -56,7 +59,7 @@ export default {
 
 ## Vuex
 
-如果要在`fetch`中调用并操作`store`，请使用`store.dispatch`，但是要确保在内部使用`async / await`等待操作结束：
+If you want to call a store action, use `store.dispatch` inside `fetch`, make sure to wait for the end of the action by using `async`/`await` inside:
 
 ```html
 <script>
@@ -80,6 +83,6 @@ export const actions = {
 }
 ```
 
-## 监听 query 字符串的改变
+## Listening to query string changes
 
-默认情况下，不会在查询字符串更改时调用`fetch`方法。如果想更改此行为，例如，在编写分页组件时，您可以设置通过页面组件的`watchQuery`属性来监听参数的变化。了解更多有关 [API `watchQuery` page](/api/pages-watchquery)的信息。
+The `fetch` method **is not called** on query string changes by default. If you want to change this behavior, for example when building a pagination component, you can setup parameters that should be listened to through the `watchQuery` property of your page component. Learn more on the [API `watchQuery` page](/api/pages-watchquery).

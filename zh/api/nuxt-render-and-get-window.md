@@ -1,40 +1,45 @@
 ---
 title: "API: nuxt.renderAndGetWindow(url, options)"
-description: 渲染指定url并获取对应的window对象。
+description: Get the `window` from a given URL of a Nuxt.js Application.
 ---
 
 # nuxt.renderAndGetWindow(url, options = {})
 
-- 类型： `Function`
-- 参数： `String`
-  1. `String`： 待渲染的 URL 路径
-  2. *可选*， `Object`： options
-    - virtualConsole： `Boolean` (默认值：`true`)
-- 返回值： `Promise`
-  - `Promise` 最终返回的值: `window`
+- Type: `Function`
+- Argument: `String`
+  1. `String`: URL to render
+  2. *Optional*, `Object`: options
+    - virtualConsole: `Boolean` (default: `true`)
+- Returns: `Promise`
+  - Returns: `window`
 
-> 渲染指定url并获取对应的window对象。
+> Get the window from a given url of a Nuxt.js application.
 
 <div class="Alert Alert--orange">
 
-这个方法只用于 [测试目的](guide/development-tools#端对端测试)。
+This method is made for [test purposes](/guide/development-tools#end-to-end-testing).
 
 </div>
 
-要使用这个方法，需要先安装 `jsdom`：
+To use this function, you have to install `jsdom`:
+
 ```bash
 npm install --save-dev jsdom
 ```
 
-例如：
+Example:
+
 ```js
-const Nuxt = require('nuxt')
-const nuxt = new Nuxt()
+const { Nuxt, Builder } = require('nuxt')
+
+const config = require('./nuxt.config.js')
+config.dev = false
+
+const nuxt = new Nuxt(config)
 
 nuxt.renderAndGetWindow('http://localhost:3000')
 .then((window) => {
-  // 显示文档标题
+  // Display the head `<title>`
   console.log(window.document.title)
 })
 ```
-

@@ -1,60 +1,56 @@
 ---
-title: "API: <nuxt> 组件"
-description: 该组件用于在布局中显示页面组件（即非布局内容）。
+title: "API: The <nuxt> Component"
+description: Display the page components inside a layout.
 ---
 
-# &lt;nuxt&gt; 组件
+# The &lt;nuxt&gt; Component
 
-> 该组件只适用于在[布局](/guide/views#布局)中显示页面组件（即非布局内容）。
+> This component is used only in [layouts](/guide/views#layouts) to display the page components.
 
-例子 (`layouts/default.vue`)：
+Example (`layouts/default.vue`):
 
 ```html
 <template>
   <div>
-    <div>页头</div>
+    <div>My nav bar</div>
     <nuxt/>
-    <div>页脚</div>
+    <div>My footer</div>
   </div>
 </template>
 ```
 
-可以看下这个实际的[布局示例](/examples/layouts)。
+To see an example, take a look at the [layouts example](/examples/layouts).
 
 **Props**:
 
 - nuxtChildKey: `string`
-  - 此prop将设置为`<router-view />`，可用于在动态页面和不同路由内进行过渡。
-  - 默认: `$route.path`
+  - This prop will be set to `<router-view/>`, useful to make transitions inside a dynamic page and different route.
+  - Default: `$route.path`
 
-有三种方式可以处理 `<router-view />` 内部属性的 `key`。
+There are 3 ways to handle internal `key` prop of `<router-view/>`.
 
-1. `nuxtChildKey` 属性：
+1. `nuxtChildKey` prop
 
-```html
-<template>
-   <div>
-     <nuxt :nuxt-child-key="someKey"/>
-   </div>
-</template>
-```
+  ```html
+  <template>
+     <div>
+       <nuxt :nuxt-child-key="someKey"/>
+     </div>
+  </template>
+  ```
 
-2. 页面组件中的`key`选项：`string` 或 `function`
+2. `key` option in page components: `string` or `function`
 
-```js
-export default {
-   key(route) {
-     return route.fullPath
-   }
-}
-```
+  ```js
+  export default {
+     key(route) {
+       return route.fullPath
+     }
+  }
+  ```
 
-3. 页面组件中的`watchQuery`选项：`boolean` 或 `string []`
+- name: `string` (_introduced with Nuxt v2.4.0_)
+  - This prop will be set to `<router-view/>`, used to render named-view of page component.
+  - Default: `default`
 
-[watchQuery](/api/pages-watchquery)选项中指定的查询会被用于构建`key`。如果`watchQuery`为`true`，则默认使用`fullPath`。
-
-- name: `string` (_Nuxt v2.4.0 新增_)
-  - 此 prop 将设置为`<router-view />`，用于呈现页面组件的命名视图。
-  - 默认: `default`
-
-查看例子请点击： [命名视图例子](/examples/named-views).
+To see an example, take a look at the [named-views example](/examples/named-views).

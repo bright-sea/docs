@@ -1,13 +1,13 @@
 ---
-title: "API: server 属性"
-description: Nuxt.js允许您为应用程序内部定义服务器访问变量 `nuxt.config.js`.
+title: "API: The server Property"
+description: Nuxt.js let you define the server connection variables for your application inside `nuxt.config.js`.
 ---
 
-# server 属性
+# The server Property
 
-- 类型: `Object`
+- Type: `Object`
 
-> Nuxt.js允许您为应用程序内部`nuxt.config.js`中定义服务器访问主机和端口.
+> Nuxt.js let you define the server connection variables for your application inside `nuxt.config.js`.
 
 ## Basic example (`nuxt.config.js`):
 
@@ -16,13 +16,14 @@ export default {
   server: {
     port: 8000, // default: 3000
     host: '0.0.0.0', // default: localhost,
+    timing: false
   }
 }
 ```
 
-这允许您指定Nuxt.js服务器实例的[主机和端口](/faq/host-port)。
+This lets you specify the [host and port](/faq/host-port) for your Nuxt.js server instance.
 
-## 使用 HTTPS 配置的示例
+## Example using HTTPS configuration
 
 ```js
 import path from 'path'
@@ -38,7 +39,7 @@ export default {
 }
 ```
 
-## 使用 sockets 配置的示例
+## Example using sockets configuration
 
 ```js
 export default {
@@ -50,14 +51,14 @@ export default {
 
 ## timing
 
-- 类型: `Object` or `Boolean`
-- 默认: `false`
+- Type: `Object` or `Boolean`
+- Default: `false`
 
-启用`server.timing`选项会添加一个中间件来测量服务器端渲染过程中经过的时间，并将其作为'Server-Timing'添加到标头中
+Enabling the `server.timing` option adds a middleware to measure the time elapsed during server-side rendering and adds it to the headers as 'Server-Timing'
 
-### 使用时序配置的示例
+### Example using timing configuration
 
-`server.timing`可以是提供选项的对象。目前，支持`total`(直接跟踪服务器端渲染所花费的全部时间)
+`server.timing` can be an object for providing options. Currently, only `total` is supported (which directly tracks the whole time spent on server-side rendering)
 
 ```js
 export default {
@@ -69,9 +70,9 @@ export default {
 }
 ```
 
-### 使用 timing api
+### Using timing api
 
-当启用`server.time`时，`timing` api也被注入服务器端的`response`。
+The `timing` api is also injected into the `response` on server-side when `server.time` is enabled.
 
 #### Syntax
 
@@ -80,7 +81,7 @@ res.timing.start(name, description)
 res.timing.end(name)
 ```
 
-#### 在 servermiddleware 中使用计时的示例
+#### Example using timing in servermiddleware
 
 ```js
 export default function (req, res, next) {
@@ -92,10 +93,10 @@ export default function (req, res, next) {
 }
 ```
 
-然后`server-timing`头将包含在响应头中，如：
+Then `server-timing` head will be included in response header like:
 
 ```bash
 Server-Timing: midd;desc="Middleware timing description";dur=2.4
 ```
 
-请参阅 [Server-Timing MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing) 来获取更多详细信息。
+Please refer to [Server-Timing MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing) for more details.

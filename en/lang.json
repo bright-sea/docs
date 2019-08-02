@@ -7,18 +7,16 @@
     "chat": "Chat",
     "documentation": "Documentation",
     "download": "Download",
-    "examples": "Examples",
+    "demo": "Demo",
+    "contact": "Contact",
     "ecosystem": "Ecosystem",
     "faq": "FAQ",
     "get_started": "get started",
     "github": "GitHub",
-    "guide": "Guide",
+    "doc": "Document",
     "homepage": "Home page",
     "live_demo": "Live Demo",
     "live_edit": "Live Edit",
-    "tidelift_short": "GET PROFESSIONAL SUPPORT",
-    "official_support": "GET OFFICIAL SUPPORT ⛑",
-    "tidelift": "GET PROFESSIONAL SUPPORT FOR NUXT",
     "twitter": "Twitter",
     "vuejs": "Vue.js",
     "vue_jobs": "Vue Jobs"
@@ -34,41 +32,24 @@
     "version": "Version"
   },
   "homepage": {
-    "title": "WPT Component",
+    "title": "WebPivotTable",
     "meta": {
-      "title": "WebPivotTable component",
-      "description": "WPT component run inside any browsers to mimic Excel pivot table. WPT component connect to any data files, databases, OLAP cubes to analyze data on any devices anytime."
+      "title": "WebPivotTable",
+      "description": "WebPivotTable run inside any browsers to mimic Excel pivot table. WebPivotTable connect to any data files, databases, OLAP cubes to analyze data on any devices anytime."
     },
     "welcome": {
       "app_types_prefix": "For ",
-      "app_types": ["Enterprise Web site", "Web Application", "SaaS solution", "Business intelligence", "Data analyst"],
+      "app_types": ["Web Site", "Web Application", "SaaS Solution", "Business Intelligence", "Data Analyst"],
       "app_types_suffix": "."
     },
-    "codesandbox_title": "Play with WPT component online",
-    "codesandbox_open": "Open on CodeSandBox.io",
-    "codesandbox_examples": "See more examples",
-    "backer_partners": "Partners",
-    "backer_become_a_partner": "Become A Partner",
-    "backer_sponsors": "Sponsors",
-    "backer_become_a_sponsor": "Become A Sponsor",
-    "backer_backers": "Backers",
-    "backer_become_a_backer": "Become A Backer",
-    "backer_foundations": "Foundations"
+    "codepen_title": "Play with WebPivotTable online",
+    "codepen_open": "Open on CodePen.io",
+    "codepen_examples": "See more examples"
   },
-  "sponsors": {
-    "title": "Sponsors",
-    "become": "Support us and",
-    "become_partner": "become a partner"
+  "doc": {
+    "release_notes": "Release Notes"
   },
-  "footer": {
-    "authors": "Made by Chopin Brothers"
-  },
-  "guide": {
-    "release_notes": "Release Notes",
-    "contribute": "Caught a mistake or want to contribute to the documentation?",
-    "edit_on_github": "Edit this page on GitHub!"
-  },
-  "examples": {
+  "demo": {
     "source_code": "Source Code"
   }
 }

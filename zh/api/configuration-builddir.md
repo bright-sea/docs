@@ -1,16 +1,16 @@
 ---
-title: "API: buildDir 属性"
-description: 为Nuxt.js应用程序定义 dist 目录
+title: "API: The buildDir Property"
+description: Define the dist directory for your Nuxt.js application
 ---
 
-# buildDir 属性
+# The buildDir Property
 
-- 类型: `String`
-- 默认: `.nuxt`
+- Type: `String`
+- Default: `.nuxt`
 
-> 为Nuxt.js应用程序定义.nuxt(默认)目录
+> Define the dist directory for your Nuxt.js application
 
-例如 (`nuxt.config.js`):
+Example (`nuxt.config.js`):
 
 ```js
 export default {
@@ -18,4 +18,4 @@ export default {
 }
 ```
 
-默认情况下，默认`.nuxt`是一个隐藏目录，因为它的名字以`.`开头。您可以使用此选项来防止这种情况。
+By default, many tools assume that `.nuxt` is a hidden directory, because its name starts with a dot. You can use this option to prevent that.

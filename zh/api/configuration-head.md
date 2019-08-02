@@ -1,31 +1,36 @@
 ---
-title: "API: head 属性配置"
-description: Nuxt.js 让你可以在 nuxt.config.js 中配置应用的 meta 信息。
+title: "API: The head Property"
+description: Nuxt.js let you define all default meta for your application inside nuxt.config.js.
 ---
 
-# head 属性配置
+# The head Property
 
-> 借助 `head` 属性，Nuxt.js 让你可以在 nuxt.config.js 中配置应用的 meta 信息。
+> Nuxt.js let you define all default meta for your application inside `nuxt.config.js`, use the same `head` property
 
-- 类型： `Object`
+- Type: `Object`
 
+An example `nuxt.config.js`:
 ```js
-module.exports = {
+export default {
   head: {
     titleTemplate: '%s - Nuxt.js',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+
+      // hid is used as unique identifier. Do not use `vmid` for it as it will not work
       { hid: 'description', name: 'description', content: 'Meta description' }
     ]
   }
 }
 ```
 
-想了解 `head` 属性的可用配置，可以参考 [vue-meta 配置文档](https://vue-meta.nuxtjs.org/api/#metainfo-properties)。
+To know the list of options you can give to `head`, take a look at [vue-meta documentation](https://vue-meta.nuxtjs.org/api/#metainfo-properties).
+
+You can also use `head` in your components and access to the component data through `this` ([read more](/api/pages-head)).
 
 <div class="Alert Alert--teal">
 
-<b>提示：</b> 你也可以在页面组件中使用 `head` 配置并通过 `this` 关键字来获取组件的数据，具体请参考 [页面组件的 head 属性配置](/api/pages-head)。
+<b>Info:</b> To avoid duplicated meta tags when used in child component, set up an unique identifier with the `hid` key for your meta elements ([read more](https://vue-meta.nuxtjs.org/api/#tagidkeyname)).
 
 </div>

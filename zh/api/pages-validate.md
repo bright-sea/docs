@@ -1,30 +1,30 @@
 ---
-title: "API: validate 方法"
-description: Nuxt.js 可以让你在动态路由对应的页面组件中配置一个校验方法用于校验动态路由参数的有效性。
+title: "API: The validate Method"
+description: Nuxt.js lets you define a validator method inside your dynamic route component.
 ---
 
-# validate 方法
+# The validate Method
 
-> Nuxt.js 可以让你在动态路由对应的页面组件中配置一个校验方法用于校验动态路由参数的有效性。
+> Nuxt.js lets you define a validator method inside your dynamic route component.
 
-- **类型：** `Function`
+- **Type:** `Function` or `Async Function`
 
 ```js
-validate({ params, query }) {
-  return true // 如果参数有效
-  return false // 参数无效，Nuxt.js 停止渲染当前页面并显示错误页面
+validate({ params, query, store }) {
+  return true // if the params are valid
+  return false // will stop Nuxt.js to render the route and display the error page
 }
 ```
 
 ```js
 async validate({ params, query, store }) {
   // await operations
-  return true // 如果参数有效
-  return false // 将停止Nuxt.js呈现页面并显示错误页面
+  return true // if the params are valid
+  return false // will stop Nuxt.js to render the route and display the error page
 }
 ```
 
-您还可以返回一个Promise:
+You can also return promises:
 
 ```js
 validate({ params, query, store }) {
@@ -32,9 +32,9 @@ validate({ params, query, store }) {
 }
 ```
 
-Nuxt.js 可以让你在动态路由对应的页面组件（本例为： `pages/users/_id.vue`）中配置一个校验方法。
+Nuxt.js lets you define a validator method inside your dynamic route component (In this example: `pages/users/_id.vue`).
 
-如果校验方法返回的值不为 `true`， Nuxt.js 将自动加载显示 404 错误页面。
+If the validate method does not return `true`, Nuxt.js will automatically load the 404 error page.
 
 ```js
 export default {
@@ -45,23 +45,23 @@ export default {
 }
 ```
 
-你也可以在validate 方法中校验 [store](/guide/vuex-store) 的数据 (如果 store 此前在 [nuxtServerInit 方法](/guide/vuex-store#nuxtServerInit-方法) 中被设置了的话):
+You can also check some data in your [store](/guide/vuex-store) for example (filled by [`nuxtServerInit`](/guide/vuex-store#the-nuxtserverinit-action) before action):
 
 ```js
 export default {
   validate ({ params, store }) {
-    // 校验 `params.id` 是否存在
+    // Check if `params.id` is an existing category
     return store.state.categories.some((category) => category.id === params.id)
   }
 }
 ```
 
-您还可以在验证函数执行期间抛出预期或意外错误：
+You can also throw expected or unexpected errors during validate function execution:
 
 ```js
 export default {
   async validate ({ params, store }) {
-    // 使用自定义消息触发内部服务器500错误
+    // Throws a 500 internal server error with custom message
     throw new Error('Under Construction!')
   }
 }

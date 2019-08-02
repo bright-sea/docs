@@ -1,17 +1,17 @@
 ---
-title: "API: head 方法"
-description: Nuxt.js 使用了 vue-meta 更新应用的头部标签和html属性。
+title: "API: The head Method"
+description: Nuxt.js uses vue-meta to update the headers and HTML attributes of your application.
 ---
 
-# head 方法
+# The head Method
 
-> Nuxt.js 使用了 [`vue-meta`](https://github.com/nuxt/vue-meta) 更新应用的 `头部标签(Head)` 和 `html 属性`。
+> Nuxt.js uses [vue-meta](https://github.com/nuxt/vue-meta) to update the `headers` and `html attributes` of your application.
 
-- **类型：** `Object` 或 `Function`
+- **Type:** `Object` or `Function`
 
-使用 `head` 方法设置当前页面的头部标签。
+Use the `head` method to set the HTML Head tags for the current page.
 
-在 `head` 方法里可通过 `this` 关键字来获取组件的数据，你可以利用页面组件的数据来设置个性化的 `meta` 标签。
+Your component data are available with `this` in the `head` method, you can use set custom meta tags with the page data.
 
 ```html
 <template>
@@ -29,6 +29,7 @@ export default {
     return {
       title: this.title,
       meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         { hid: 'description', name: 'description', content: 'My custom description' }
       ]
     }
@@ -39,6 +40,6 @@ export default {
 
 <div class="Alert Alert--teal">
 
-注意：为了避免子组件中的meta标签不能正确覆盖父组件中相同的标签而产生重复的现象，建议利用 `hid` 键为meta标签配一个唯一的标识编号。请阅读[关于 `vue-meta` 的更多信息](https://vue-meta.nuxtjs.org/api/#tagidkeyname)。
+<b>Info:</b> To avoid duplicated meta tags when used in child component, set up an unique identifier with the `hid` key for your meta elements ([read more](https://vue-meta.nuxtjs.org/api/#tagidkeyname)).
 
 </div>

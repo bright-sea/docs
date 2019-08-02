@@ -1,14 +1,15 @@
 ---
 title: "API: The hooks Property"
-description: hooks是Nuxt模块中通常使用的Nuxt事件的监听器，但也可以在`'Nuxt.config.js'`中使用。
+description: Hooks are listeners to Nuxt events that are typically used in Nuxt modules, but are also available in `nuxt.config.js`.
 ---
 
-# hooks 属性
+# The hooks Property
 
-- 类型: `Object`
-> hooks是[Nuxt事件的监听器](/api/internals)，这些事件通常在Nuxt模块中使用，但也可以在nuxt.config.js中使用。[了解更多](/api/internals)
+- Type: `Object`
 
-例如 (`nuxt.config.js`):
+> Hooks are [listeners to Nuxt events](/api/internals) that are typically used in Nuxt modules, but are also available in `nuxt.config.js`. [Learn More](/api/internals)
+
+Example (`nuxt.config.js`):
 
 ```js
 import fs from 'fs'
@@ -25,9 +26,10 @@ export default {
   }
 }
 ```
-在内部，hooks遵循使用冒号的命名模式(例如，`build:done`)。为了便于配置，当使用`nuxt.config.js`(如上所示)设置自己的钩子时，可以将它们构造为分层对象。有关它们如何工作的更多详细信息，请参考[Nuxt Internals](/api/internals)。
 
-## hooks 列表
+Internally, hooks follow a naming pattern using colons (e.g., `build:done`). For ease of configuration, you can structure them as an hierarchical object when using `nuxt.config.js` (as exemplifed above) to set your own hooks. See [Nuxt Internals](/api/internals) for more detailed information on how they work.
+
+## List of hooks
 
 - [Nuxt hooks](https://nuxtjs.org/api/internals-nuxt#hooks)
 - [Renderer hooks](https://nuxtjs.org/api/internals-renderer#hooks)
@@ -35,19 +37,20 @@ export default {
 - [Builder hooks](https://nuxtjs.org/api/internals-builder#hooks)
 - [Generator hooks](https://nuxtjs.org/api/internals-generator#hooks)
 
-## 例子
+## Examples
 
-### 不在root上时重定向到 router.base
+### Redirect to router.base when not on root
 
 Let´s say you want to serve pages as `/portal` instead of `/`.
-假设您希望将页面作为 `/portal` 而不是 `/` 来提供。
-这可能是一个边缘情况， _nuxt.config.js_’ `router.base`用于当Web服务器,服务Nuxt而不是域根目录时。
 
-但是当在本地开发时，遇到 _localhost_，当router.base不是 / 返回404时。为了防止这种情况，你可以设置一个Hook。
+This is maybe an edge-case, and the point of _nuxt.config.js_’ `router.base` is for when a Web server will serve Nuxt elsewhere than the domain root.
 
-也许重定向不是生产网站的最佳用例，但这将有助于您利用Hooks。
+But when in local development, hitting _localhost_, when router.base is not / returns a 404.
+In order to prevent this, you can setup a Hook.
 
-首先，你[可以 改变 `router.base`](/api/configuration-router#base);更新你的nuxt.config.js：
+Maybe redirecting is not the best use-case for a production Web site, but this will help you leverage Hooks.
+
+To begin, you [can change `router.base`](/api/configuration-router#base); Update your `nuxt.config.js`:
 
 ```js
 // nuxt.config.js
@@ -60,9 +63,9 @@ export default {
 }
 ```
 
-然后，创建一些文件;
+Then, create a few files;
 
-1. `hooks/index.js`, Hooks 模块
+1. `hooks/index.js`, Hooks module
 
    ```js
    // file: hooks/index.js
@@ -73,7 +76,7 @@ export default {
    })
    ```
 
-2. `hooks/render.js`, 渲染 hook
+1. `hooks/render.js`, Render hook
 
    ```js
    // file: hooks/render.js
@@ -95,7 +98,7 @@ export default {
    }
    ```
 
-3. `hooks/route-redirect-portal.js`, 中间件本身
+1. `hooks/route-redirect-portal.js`, The Middleware itself
 
    ```js
    // file: hooks/route-redirect-portal.js
@@ -145,4 +148,4 @@ export default {
      }
    ```
 
-然后，每当开发中的同事到达开发Web开发服务`/`时，发生了意外情况，Nuxt将自动重定向到`/portal`
+Then, whenever a colleague in development accidentally hits `/` to reach the development web development service, Nuxt will automatically redirect to `/portal`

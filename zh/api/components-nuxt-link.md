@@ -1,36 +1,38 @@
 ---
-title: "API: <nuxt-link> 组件"
-description: nuxt-link 组件用于在页面中添加链接至别的页面。
+title: "API: The <nuxt-link> Component"
+description: Link the pages between them with nuxt-link.
 ---
 
-# &lt;nuxt-link&gt; 组件
+# The &lt;nuxt-link&gt; Component
 
-> nuxt-link 组件用于在页面中添加链接至别的页面。
+> This component is used to provide navigations between page components and enhance performances with smart prefetching.
 
-目前 `<nuxt-link>` 的作用和 [`<router-link>`](https://router.vuejs.org/zh-cn/api/router-link.html) 一致，推荐阅读 [Vue路由文档](https://router.vuejs.org/zh-cn/api/router-link.html) 来了解它的使用方法。
+The `<nuxt-link>` component is an essential of Nuxt. It **should be used to navigate** through your application, similar to the `<router-link>` component in a traditional Vue App. In fact, `<nuxt-link>` extends [`<router-link>`](https://router.vuejs.org/api/#router-link). That means it takes the same properties and can be used in the same manner. Read the [Vue Router documentation](https://router.vuejs.org/api/#router-link) for more information.
 
-例如 (`pages/index.vue`)：
+Example (`pages/index.vue`):
 
 ```html
 <template>
   <div>
     <h1>Home page</h1>
-    <nuxt-link to="/about">关于</nuxt-link>
+    <nuxt-link to="/about">About (internal link that belongs to the Nuxt App)</nuxt-link>
+    <a href="https://nuxtjs.org">External Link to another page</a>
   </div>
 </template>
 ```
-**别名:** `<n-link>`, `<NuxtLink>`, 和 `<NLink>`
 
-> Nuxt.js v2.4.0添加
+**Aliases:** `<n-link>`, `<NuxtLink>`, and `<NLink>`
 
-为了提高Nuxt.js应用程序的响应能力，当链接将显示在视口中时，Nuxt.js将自动预获取代码分割页面。此功能的灵感来自Google Chrome Labs的[quicklink.js](https://github.com/GoogleChromeLabs/quicklink)。
+> Added with Nuxt.js v2.4.0
 
-要禁用链接页面的预获取，可以使用`no-prefetch`：
+To improve the responsiveness of your Nuxt.js applications, when the link will be displayed within the viewport, Nuxt.js will automatically prefetch the *code splitted* page. This feature is inspired by [quicklink.js](https://github.com/GoogleChromeLabs/quicklink) by Google Chrome Labs.
+
+To disable the prefetching of the linked page, you can use the `no-prefetch` prop:
 
 ```html
 <n-link to="/about" no-prefetch>About page not pre-fetched</n-link>
 ```
 
-您可以使用[router.prefetchLinks](/api/configuration-router#prefetchlinks)全局配置此行为。
+You can configure globally this behaviour with [router.prefetchLinks](/api/configuration-router#prefetchlinks).
 
-关于`prefetched-class`还可用于自定义在预获取代码分割页面时添加的类。确保使用[router.linkPrefetchedClass](/api/configuration-router#linkprefetchedclass)全局设置此功能。
+The `prefetched-class` prop is also available to customize the class added when the code splitted page has been prefetched. Make sure to set up this functionality globally with [router.linkPrefetchedClass](/api/configuration-router#linkprefetchedclass).

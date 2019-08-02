@@ -1,18 +1,19 @@
 ---
-title: "API: middleware 属性"
-description: 设置应用特定页面的中间件
+title: "API: The middleware Property"
+description: Set the middleware for a specific page of the application.
 ---
 
-# middleware 属性
+# The middleware Property
 
-- 类型： `String` 或 `Array`
-  - 数组元素类型： `String`
+- Type: `String` or `Array`
+  - Items: `String`
 
-在应用中的特定页面设置中间件 
+Set the middleware for a specific page of the application.
 
-例子：
+Example:
 
-`pages/secret.vue` 
+`pages/secret.vue`:
+
 ```html
 <template>
   <h1>Secret page</h1>
@@ -25,14 +26,15 @@ export default {
 </script>
 ```
 
-`middleware/authenticated.js` 
-```javascript
+`middleware/authenticated.js`:
+
+```js
 export default function ({ store, redirect }) {
   // If the user is not authenticated
   if (!store.state.authenticated) {
     return redirect('/login')
   }
 }
-``` 
+```
 
-想了解更多关于使用中间件的信息，请移步 [中间件指引](/guide/routing#中间件)。
+To learn more about the middleware, see the [middleware guide](/guide/routing#middleware).

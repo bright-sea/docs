@@ -1,24 +1,22 @@
 {
-  "name": "nuxt-docs",
+  "name": "wpt-docs",
   "version": "1.0.0",
-  "description": "Nuxt.js documentation files",
+  "description": "WPT component documentation files",
   "scripts": {
     "textlint": "textlint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuxt/docs.git"
+    "url": "git+https://github.com/bright-sea/docs.git"
   },
   "keywords": [
-    "nuxt",
-    "nuxt.js",
-    "vue",
-    "micro"
+    "wpt",
+    "webpivottable.com"
   ],
-  "author": "Nuxt.js team and contributors",
+  "author": "minghai.zhao@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nuxt/docs/issues"
+    "url": "https://github.com/bright-sea/docs/issues"
   },
-  "homepage": "https://github.com/nuxt/docs#readme"
+  "homepage": "https://github.com/bright-sea/docs#readme"
 }

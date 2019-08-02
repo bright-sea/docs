@@ -1,18 +1,18 @@
 ---
-title: "$nuxt: NuxtJS 的优化帮手"
-description: $nuxt 是一个专注于改善用户用户体验的帮手。
+title: "$nuxt: The NuxtJS helper"
+description: $nuxt is an helper focused to improve the user experience of your users.
 ---
 
-`$nuxt` 是一个专注于改善用户用户体验的帮手。
+`$nuxt`is an helper focused to improve the user experience of your users.
 
 - `isOffline`
-  - 类型: `Boolean`
-  - 描述: `true` 当用户互联网连接变为离线时
+  - Type: `Boolean`
+  - Description: `true` when the user internet connection becomes offline
 - `isOnline`
-  - 类型: `Boolean`
-  - 描述: `isOffline`相反
+  - Type: `Boolean`
+  - Description: Opposite of `isOffline`
 
-例子:
+Example:
 
 `layouts/default.vue`:
 

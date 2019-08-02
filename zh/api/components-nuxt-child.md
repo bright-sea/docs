@@ -1,13 +1,13 @@
 ---
-title: "API: <nuxt-child> 组件"
-description: 显示当前页面
+title: "API: The <nuxt-child> Component"
+description: Display the current page.
 ---
 
-# &lt;nuxt-child&gt; 组件
+# The &lt;nuxt-child&gt; Component
 
-> 该组件用于显示[嵌套路由](/guide/routing#嵌套路由)场景下的页面内容。
+> This component is used for displaying the children components in a [nested route](/guide/routing#nested-routes).
 
-例如：
+Example:
 
 ```bash
 -| pages/
@@ -16,7 +16,7 @@ description: 显示当前页面
 ---| parent.vue
 ```
 
-上面的目录树结构会生成下面这些路由配置：
+This file tree will generate these routes:
 
 ```js
 [
@@ -35,17 +35,18 @@ description: 显示当前页面
 ]
 ```
 
-为了显示 `child.vue` 组件，我们需要在父级页面组件 `pages/parent.vue` 中加入 `<nuxt-child/>`：
+To display the `child.vue` component, we have to insert `<nuxt-child/>` inside `pages/parent.vue`:
 
 ```html
 <template>
   <div>
-    <h1>我是父级页面</h1>
+    <h1>I am the parent view</h1>
     <nuxt-child :foobar="123" />
   </div>
 </template>
 ```
-`<nuxt-child/>` 接收 `keep-alive` 和 `keep-alive-props`:
+
+`<nuxt-child/>` accepts `keep-alive` and `keep-alive-props`:
 
 ```html
 <template>
@@ -54,7 +55,7 @@ description: 显示当前页面
   </div>
 </template>
 
-<!-- 将被转换成以下形式 -->
+<!-- will be converted into something like this -->
 <div>
   <keep-alive :exclude="['modal']">
     <router-view />
@@ -62,15 +63,15 @@ description: 显示当前页面
 </div>
 ```
 
-> 子组件还可以接收Vue组件等属性。
+> Child components can also receive properties like a regular Vue component.
 
-可以看这个实际案例：[嵌套路由示例](/examples/nested-routes)
+To see an example, take a look at the [nested-routes example](/examples/nested-routes).
 
-## 命名视图
+## Named View
 
-> Nuxt v2.4.0 新增
+> Introduced with Nuxt v2.4.0
 
-`<nuxt-child/>`接受`name` prop 来呈现渲染命名视图：
+`<nuxt-child/>` accepts `name` prop to render named-view:
 
 ```html
 <template>
@@ -81,4 +82,4 @@ description: 显示当前页面
 </template>
 ```
 
-查看更多例子，请点击 [named-views 例子](/examples/named-views).
+To see an example, take a look at the [named-views example](/examples/named-views).

@@ -1,57 +1,65 @@
 ---
-title: "API: dev 属性配置"
-description: 配置应用是开发模式还是生产模式。
+title: "API: The dev Property"
+description: Define the development or production mode.
 ---
 
-# dev 属性配置
+# The dev Property
 
-- 类型： `Boolean`
-- 默认值： `true`
+- Type: `Boolean`
+- Default: `true`
 
-> 配置 Nuxt.js 应用是开发模式还是生产模式。
+> Define the development or production mode of Nuxt.js.
 
-dev 属性的值会被 [nuxt 命令](/guide/commands) 覆盖：
-- 当使用 `nuxt` 命令时，`dev` 会被强制设置成 `true`
-- 当使用 `nuxt build`， `nuxt start` 或 `nuxt generate` 命令时，`dev` 会被强制设置成 `false`
+This property is overwritten by [nuxt commands](/guide/commands):
 
-所以，在 [编码中使用 nuxt.js](/api/nuxt) 时才会用到该配置。
+- `dev` is forced to `true` with `nuxt`
+- `dev` is forced to `false` with `nuxt build`, `nuxt start` and `nuxt generate`
 
-例如 （`nuxt.config.js`)：
+This property should be used when using [Nuxt.js programmatically](/api/nuxt):
+
+Example:
+
+`nuxt.config.js`
+
 ```js
-module.exports = {
+export default {
   dev: (process.env.NODE_ENV !== 'production')
 }
 ```
 
-在 `server.js` 中：
+`server.js`
+
 ```js
-const {Nuxt, Builder} = require('nuxt')
+const { Nuxt, Builder } = require('nuxt')
 const app = require('express')()
 const port = process.env.PORT || 3000
 
-// 传入配置初始化 Nuxt.js 实例
+// We instantiate Nuxt.js with the options
 let config = require('./nuxt.config.js')
 const nuxt = new Nuxt(config)
 app.use(nuxt.render)
 
-// 在开发模式下进行编译
+// Build only in dev mode
 if (config.dev) {
   new Builder(nuxt).build()
 }
 
-// 监听指定端口
-app.listen(port, '0.0.0.0')
-console.log('服务器运行于 localhost:' + port)
+// Listen the server
+app.listen(port, '0.0.0.0').then(() => {
+  console.log(`Server is listening on port: ${port}`)
+})
 ```
 
-然后可在 `package.json` 中添加脚本配置如下：
+Then in your `package.json`:
+
 ```json
 {
   "scripts": {
     "dev": "node server.js",
     "build": "nuxt build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "cross-env NODE_ENV=production node server.js"
   }
 }
 ```
-注意: 要运行上面的示例，你需要运行 `npm install --save-dev cross-env` 安装 `cross-env`。 如果你在*非* Windows 环境下开发，你可以不用安装 cross-env，这时需要把 `start` 脚本中的 cross-env 去掉并直接设置`NODE_ENV`即可。
+
+Note: You'll need to run `npm install --save-dev cross-env` for the above example to work. If you're *not* developing on Windows you can leave `cross-env` out of your `start` script and set `NODE_ENV` directly.

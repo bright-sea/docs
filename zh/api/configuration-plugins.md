@@ -1,36 +1,69 @@
 ---
-title: "API: plugins 属性配置"
-description: plugins 属性使得你可以轻易地为 Nuxt.js 配置使用 Vue.js 插件。
+title: 'API: The plugins Property'
+description: 'Use vue.js plugins with the plugins option of Nuxt.js.'
 ---
 
-# plugins 属性配置
+# The plugins Property
 
-- 类型： `Array`
-  - 数组元素类型： `String` 或 `Object`
+**Note**: Since Nuxt.js 2.4, `mode` has been introduced as option of `plugins` to specify plugin type, possible value are: `client` or `server`. `ssr: false` will be adapted to `mode: 'client'` and deprecated in next major release.
 
-如果数组元素类型是 `Object`， 其具有以下属性：
-  - src: `String` (文件的路径)
-  - ssr: `Boolean` (默认为 `true`) *如果值为 false，该文件只会在客户端被打包引入。*
+- Type: `Array`
+  - Items: `String` or `Object`
 
-> `plugins` 属性使得你可以轻易地为 Nuxt.js 配置使用 Vue.js 插件。
+If the item is an object, the properties are:
 
-例如 (`nuxt.config.js`)：
+  - src: `String` (path of the file)
+  - mode: `String` (can be `client` or `server`) *If defined, the file will be included only on the respective (client or server) side.*
+
+**Note**: Old version
+
+- Type: `Array`
+  - Items: `String` or `Object`
+
+If the item is an object, the properties are:
+
+  - src: `String` (path of the file)
+  - ssr: `Boolean` (default to `true`) *If false, the file will be included only on the client-side.*
+
+> The plugins property lets you add vue.js plugins easily to your main application.
+
+Example (`nuxt.config.js`):
+
 ```js
-module.exports = {
-  plugins: ['~plugins/vue-notifications']
+export default {
+  plugins: [
+    { src: '~/plugins/both-sides.js' },
+    { src: '~/plugins/client-only.js', mode: 'client' },
+    { src: '~/plugins/server-only.js', mode: 'server' }
+  ]
 }
 ```
 
-然后, 我们需要创建 `plugins/vue-notifications.js` 文件：
-```js
-import Vue from 'vue'
-import VueNotifications from 'vue-notifications'
+UI framework example (`nuxt.config.js`):
 
-Vue.use(VueNotifications)
+```js
+export default {
+  plugins: ['@/plugins/ant-design-vue']
+}
 ```
 
-`plugins` 属性配置的所有插件会在 Nuxt.js 应用初始化之前被加载**导入**。
+This refers to a file in `plugins/ant-design-vue.js`:
 
-每次你需要使用 `Vue.use()` 时，你需要在 `plugins/` 目录下创建相应的插件文件，并在 `nuxt.config.js` 中的 `plugins` 配置项中配置插件的路径。
+```js
+import Vue from 'vue'
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css' // Per Ant Design's docs
 
-想了解更多关于使用插件的信息，请移步 [插件使用指引](/guide/plugins#使用-vue-插件)。
+Vue.use(Antd)
+```
+
+Note that the css was [imported as per Ant Design Documentation](https://vue.ant.design/docs/vue/getting-started/#3.-Use-antd's-Components "External tip relevant to building plugins")
+
+
+All the paths defined in the `plugins` property will be **imported** before initializing the main application.
+
+## When do I use plugins?
+
+Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to `plugins` in `nuxt.config.js`.
+
+To learn more how to use the plugins, see the [guide documentation](/guide/plugins#vue-plugins).

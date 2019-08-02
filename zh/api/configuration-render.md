@@ -1,16 +1,17 @@
 ---
 title: "API: The render Property"
-description: Nuxt.js允许您自定义渲染页面的运行时选项
+description: Nuxt.js lets you customize runtime options for rendering pages
 ---
 
-# render 属性
+# The render Property
 
-> Nuxt.js允许您自定义渲染页面的运行时选项
+> Nuxt.js lets you customize runtime options for rendering pages
 
 ## bundleRenderer
-- 类型: `Object`
 
-> 使用此选项可自定义vue SSR渲染器。`spa`模式会跳过此选项。
+- Type: `Object`
+
+> Use this option to customize vue SSR bundle renderer. This option is skipped for spa mode.
 
 ```js
 export default {
@@ -26,76 +27,138 @@ export default {
 }
 ```
 
-了解有关[Vue SSR API参考](https://ssr.vuejs.org/en/api.html#renderer-options)的可用选项的更多信息。**建议不要使用此选项，因为Nuxt.js已经提供了最佳SSR默认值，错误配置可能导致SSR问题。**
+Learn more about available options on [Vue SSR API Reference](https://ssr.vuejs.org/en/api.html#renderer-options).
+It is recommended to not use this option as Nuxt.js is already providing best SSR defaults and misconfiguration might lead to SSR problems.
 
 ## etag
-- 类型: `Object`
-  - 默认: `{ weak: true }`
 
-禁用设置页面的etag `etag: false`
+- Type: `Object`
+  - Default: `{ weak: true }`
 
-查看 [etag](https://www.npmjs.com/package/etag) 文档来了解更多配置。
+To disable etag for pages set `etag: false`
 
-### compressor
-- 类型 `Object`
-  - 默认: `{ threshold: 0 }`
+See [etag](https://www.npmjs.com/package/etag) docs for possible options.
 
-当提供对象（或虚假值）时，将使用[压缩](https://www.npmjs.com/package/compression)中间件（具有相应选项）。
+## compressor
 
-如果您想使用自己的压缩中间件，可以直接引用它(例如： `otherComp({ myOptions: 'example' })`)。
+- Type `Object`
+  - Default: `{ threshold: 0 }`
+
+When providing an object, the [compression](https://www.npmjs.com/package/compression) middleware
+will be used (with respective options).
+
+If you want to use your own compression middleware, you can reference it
+directly (f.ex. `otherComp({ myOptions: 'example' })`).
+
+To disable compression, use `compressor: false`.
 
 ## fallback
-- 类型 `Object`
-  - 默认: `{ dist: {}, static: { skipUnknown: true } }`
 
-中间件配置选项[serve-placeholder](https://github.com/nuxt/serve-placeholder)。
+- Type `Object`
+  - Default: `{ dist: {}, static: { skipUnknown: true } }`
 
-如果要禁用其中一个或两者，则可以传递`false`。
+> Options for [serve-placeholder](https://github.com/nuxt/serve-placeholder) middleware.
 
-### http2
-- 类型 `Object`
-  - 默认: `{ push: false }`
+If you want to disable one of them or both, you can pass a falsy value.
 
-激活 HTTP2 push headers.
+## http2
+
+- Type `Object`
+  - Default: `{ push: false, pushAssets: null }`
+
+> Activate HTTP2 push headers.
+
+You can control what links to push using `pushAssets` function.
+
+Example:
+```js
+pushAssets: (req, res, publicPath, preloadFiles) => preloadFiles
+  .filter(f => f.asType === 'script' && f.file === 'runtime.js')
+  .map(f => `<${publicPath}${f.file}>; rel=preload; as=${f.asType}`)
+```
+
+You can add your own assets to the array as well.
+Using `req` and `res` you can decide what links to push based on the request headers, for example using the cookie with application version.
+
+The assets will be joined together with `, ` and passed as a single `Link` header.
+
+## injectScripts
+
+- Type: `Boolean`
+  - Default: `true`
+
+> Adds the `<script>` for Nuxt bundles, set it to `false` to render pure HTML without JS (available with `2.8.0+`)
 
 ## resourceHints
-- 类型: `boolean`
-  - 默认: `true`
 
-> 添加`prefetch`和`preload`，以加快初始页面加载时间。
+- Type: `Boolean`
+  - Default: `true`
 
-如果有许多页面和路由，您可能只想禁用此选项。
+> Adds `prefetch` and `preload` links for faster initial page load time.
+
+You may want to only disable this option if you have many pages and routes.
 
 ## ssr
-- 类型: `boolean`
-  - 默认: `true` on universal 模式 或 `false` on spa 模式
 
-> 开启 SSR rendering
+- Type: `Boolean`
+  - Default: `true` on universal mode and `false` on spa mode
 
-如果未提供，则根据`mode`值自动设置此选项。这对于在映像构建之后在运行时动态启用/禁用SSR非常有用。（以docker为例）
+> Enable SSR rendering
+
+This option is automatically set based on `mode` value if not provided.
+This can be useful to dynamically enable/disable SSR on runtime after image builds (with docker for example).
+
+## ssrLog
+
+- Type: `Boolean` | `String`
+  - Default: `true` in dev mode and `false` in production
+
+> Forward server-side logs to the browser for better debugging (only available in development)
+
+To collapse the logs, use `'collapsed'` value.
 
 ## static
-- 类型: `Object`
-  - 默认: `{}`
 
-查看 [serve-static](https://www.npmjs.com/package/serve-static) 文档来了解更多配置。
+- Type: `Object`
+  - Default: `{}`
+
+> Configure the `static/` directory behaviour
+
+See [serve-static](https://www.npmjs.com/package/serve-static) docs for possible options.
+
+Additional to them, we introduced a `prefix` option which defaults to `true`.
+It will add the router base to your static assets.
+
+**Example:**
+
+* Assets: `favicon.ico`
+* Router base: `/t`
+* With `prefix: true` (default): `/t/favicon.ico`
+* With `prefix: false`: `/favicon.ico`
+
+**Caveats:**
+
+Some URL rewrites might not respect the prefix.
 
 ## dist
-- 类型: `Object`
-  - 默认: `{ maxAge: '1y', index: false }`
 
-用于提供分发文件的选项。仅适用于生产环境(线上环境)。
+- Type: `Object`
+  - Default: `{ maxAge: '1y', index: false }`
 
-查看 [serve-static](https://www.npmjs.com/package/serve-static) 文档来了解更多配置。
+> Options used for serving distribution files. Only applicable in production.
+
+See [serve-static](https://www.npmjs.com/package/serve-static) docs for possible options.
 
 ## csp
 
-> 使用此配置来加载Content-Security-Policy外部资源
+- Type: `Boolean` or `Object`
+  - Default: `false`
 
-- 类型: `Boolean` 或 `Object`
-  - 默认: `false`
+> Use this to configure to load external resources of Content-Security-Policy
 
-例如 (`nuxt.config.js`)
+Note that CSP hashes will not be added if `script-src` policy contains `'unsafe-inline'`. This is due to browser ignoring `'unsafe-inline'` if hashes are present. Set option `unsafeInlineCompatiblity` to `true` if you want both hashes and `'unsafe-inline'` for CSPv1 compatibility.
+
+Example (`nuxt.config.js`)
 
 ```js
 export default {
@@ -104,14 +167,54 @@ export default {
   }
 }
 
-// 或
+// OR
 
 export default {
   render: {
     csp: {
       hashAlgorithm: 'sha256',
-      allowedSources: undefined,
-      policies: undefined
+      policies: {
+        'script-src': [
+          'https://www.google-analytics.com',
+          'https://name.example.com'
+        ],
+        'report-uri': [
+          'https://report.example.com/report-csp-violations'
+        ]
+      }
+    }
+  }
+}
+
+// OR 
+/*
+  The following example allows Google Analytics, LogRocket.io, and Sentry.io
+  for logging and analytic tracking.
+
+  Review to this blog on Sentry.io
+  https://blog.sentry.io/2018/09/04/how-sentry-captures-csp-violations
+
+  To learn what tracking link you should use.
+*/
+const PRIMARY_HOSTS = `loc.example-website.com`
+export default {
+  csp: {
+    reportOnly: true,
+    hashAlgorithm: 'sha256',
+    policies: {
+      'default-src': ["'self'"],
+      'img-src': ['https:', '*.google-analytics.com'],
+      'worker-src': ["'self'", `blob:`, PRIMARY_HOSTS, '*.logrocket.io'],
+      'style-src': ["'self'", "'unsafe-inline'", PRIMARY_HOSTS],
+      'script-src': ["'self'", "'unsafe-inline'", PRIMARY_HOSTS, 'sentry.io', '*.sentry-cdn.com', '*.google-analytics.com', '*.logrocket.io'],
+      'connect-src': [PRIMARY_HOSTS, 'sentry.io', '*.google-analytics.com'],
+      'form-action': ["'self'"],
+      'frame-ancestors': ["'none'"],
+      'object-src': ["'none'"],
+      'base-uri': [PRIMARY_HOSTS],
+      'report-uri': [
+        `https://sentry.io/api/<project>/security/?sentry_key=<key>`
+      ]
     }
   }
 }

@@ -1,17 +1,17 @@
 ---
 title: "API: The Nuxt Class"
-description: Nuxt Core 类
+description: Nuxt Core Class
 ---
 
 # Nuxt Class
 
-- 来源: **[core/nuxt.js](https://github.com/nuxt/nuxt.js/blob/dev/packages/core/src/nuxt.js)**
+- Source: **[core/nuxt.js](https://github.com/nuxt/nuxt.js/blob/dev/packages/core/src/nuxt.js)**
 
-这是核心容器，允许所有模块和类相互通信。所有模块都可以使用`this.nuxt`访问Nuxt实例。
+This is the core container which allows all modules and classes communicate with each other. All modules have access to Nuxt instance using `this.nuxt`.
 
 ## Hooks
 
-我们可以在某些生命周期事件中注册hooks。
+We can register hooks on certain life cycle events.
 
 ```js
 nuxt.hook('ready', async nuxt => {
@@ -21,7 +21,7 @@ nuxt.hook('ready', async nuxt => {
 
 Plugin   | Arguments              | When
 ---------|------------------------|------------------------------------------------------------------------------
-`ready`  | (nuxt)                 | Nuxt实例初始化 (`ModuleContainer` 和 `Renderer` 已经准备好).
-`error`  | (error)                | 调用hooks时出现未处理的错误。
-`close`  | (nuxt)                 | Nuxt实例优雅地关闭。
-`listen` | (server, {host, port}) | Nuxt**内部**服务器开始监听。 (使用 `nuxt start` 或 `nuxt dev`).
+`ready`  | (nuxt)                 | Nuxt is ready to work (`ModuleContainer` and `Renderer` ready).
+`error`  | (error)                | An unhandled error when calling hooks.
+`close`  | (nuxt)                 | Nuxt instance is gracefully closing.
+`listen` | (server, {host, port}) | Nuxt **internal** server starts listening. (Using `nuxt start` or `nuxt dev`).

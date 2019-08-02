@@ -1,24 +1,24 @@
 ---
-title: "API: srcDir 属性配置"
-description: 设置 Nuxt.js 应用的源码目录
+title: "API: The srcDir Property"
+description: Define the source directory of your Nuxt.js application
 ---
 
-# srcDir 属性配置
+# The srcDir Property
 
-- 类型： `String`
-- 默认值：[rootDir 的值](/api/configuration-rootdir)
+- Type: `String`
+- Default: [rootDir value](/api/configuration-rootdir)
 
-> 设置 Nuxt.js 应用的源码目录
+> Define the source directory of your Nuxt.js application
 
-例如 (`nuxt.config.js`)：
+Example (`nuxt.config.js`):
 
 ```js
-module.exports = {
+export default {
   srcDir: 'client/'
 }
 ```
 
-此时，应用的目录结构应为：
+Then, your application structure can be:
 ```bash
 -| app/
 ---| node_modules/
@@ -29,4 +29,4 @@ module.exports = {
 ---| package.json
 ```
 
-当在现有的服务中集成使用 Nuxt.js 时，该配置项才有使用价值。可以将 Nuxt.js 的依赖包和原服务的 npm 依赖包一起组织至一个 `package.json` 文件中。
+This option is useful to have a custom server and using Nuxt.js, so all npm dependencies can be regrouped in one `package.json`.

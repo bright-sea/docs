@@ -1,15 +1,15 @@
 ---
-title: "API: loading 属性配置"
-description: 在页面切换的时候，Nuxt.js 使用内置的加载组件显示加载进度条。你可以定制它的样式，禁用或者创建自己的加载组件。
+title: "API: The loading Property"
+description: Nuxt.js uses its own component to show a progress bar between the routes. You can customize it, disable it or create your own component.
 ---
 
-# loading 属性配置
+# The loading Property
 
-- 类型： `Boolean` 或 `Object` 或 `String`
+- Type: `Boolean` or `Object` or `String`
 
-> 在页面切换的时候，Nuxt.js 使用内置的加载组件显示加载进度条。你可以定制它的样式，禁用或者创建自己的加载组件。
+> Nuxt.js uses its own component to show a progress bar between the routes. You can customize it, disable it or create your own component.
 
-在你的组件中你可以使用`this.$nuxt.$loading.start()`来启动加载条。使用`this.$nuxt.$loading.finish()`来使加载条结束。
+In your component you can use `this.$nuxt.$loading.start()` to start the loading bar and `this.$nuxt.$loading.finish()` to finish it.
 
 ```javascript
 export default {
@@ -23,42 +23,41 @@ export default {
  }
 ```
 
-如果要在`mounted`方法中启动它，请确保使用`this.$nextTick`来调用它，因为`$loading`可能无法立即使用。
+> If you want to start it in the `mounted` method, make sure to use ` this.$nextTick`, because $loading may not be available immediately.
 
-## 禁用加载进度条
+## Disable the Progress Bar
 
-- 类型： `Boolean`
+- Type: `Boolean`
 
-页面切换的时候如果不想显示加载进度条，可以在 `nuxt.config.js` 里面增加 `loading: false` 的配置：
+If you don't want to display the progress bar between the routes, simply add `loading: false` in your `nuxt.config.js` file:
 
 ```js
-module.exports = {
+export default {
   loading: false
 }
 ```
 
-## 个性化加载进度条
+## Customize the Progress Bar
 
-- 类型： `Object`
+- Type: `Object`
 
-以下表格为进度条定制化时可用到的配置项及其说明。
+List of properties to customize the progress bar.
 
-| 键 | 类型 | 默认值 | 描述 |
+| Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `color` | String | `'black'` | 进度条的颜色 |
-| `failedColor` | String | `'red'` | 页面加载失败时的颜色 （当 `data` 或 `fetch` 方法返回错误时）。 |
-| `height` | String | `'2px'` | 进度条的高度 (在进度条元素的 `style` 属性上体现)。 |
-| `throttle` | Number | `200` | 在ms中，在显示进度条之前等待指定的时间。用于防止条形闪烁。 |
-| `duration` | Number | `5000` | 进度条的最大显示时长，单位毫秒。Nuxt.js 假设页面在该时长内加载完毕。 |
-| `continuous` | Boolean | `false` | 当加载时间超过`duration`时，保持动画进度条。 |
-| `css` | Boolean | `true` | 设置为false以删除默认进度条样式（并添加自己的样式）。 |
-| `rtl` | Boolean | `false` | 从右到左设置进度条的方向。 |
+| `color` | String | `'black'` | CSS color of the progress bar |
+| `failedColor` | String | `'red'` | CSS color of the progress bar when an error appended while rendering the route (if `data` or `fetch` sent back an error for example). |
+| `height` | String | `'2px'` | Height of the progress bar (used in the `style` property of the progress bar) |
+| `throttle` | Number | `200` | In ms, wait for the specified time before displaying the progress bar. Useful for preventing the bar from flashing. |
+| `duration` | Number | `5000` | In ms, the maximum duration of the progress bar, Nuxt.js assumes that the route will be rendered before 5 seconds. |
+| `continuous` | Boolean | `false` | Keep animating progress bar when loading takes longer than `duration`. |
+| `css` | Boolean | `true` | Set to false to remove default progress bar styles (and add your own). |
+| `rtl` | Boolean | `false` | Set the direction of the progress bar from right to left. |
 
-
-举个例子，一个5像素高的蓝色进度条，可以在 `nuxt.config.js` 中配置如下：
+For a blue progress bar with 5px of height, we update the `nuxt.config.js` to the following:
 
 ```js
-module.exports = {
+export default {
   loading: {
     color: 'blue',
     height: '5px'
@@ -66,23 +65,22 @@ module.exports = {
 }
 ```
 
-## 自定义加载组件
+## Use a Custom Loading Component
 
-- 类型： `String`
+- Type: `String`
 
-你可以新建一个加载组件替代 Nuxt.js 默认的。
-使用自己的加载组件，需要在 `loading` 配置项里指定组件的路径，Nuxt.js 会自动调用该组件。
+You can create your own component that Nuxt.js will call instead of its default component. To do so, you need to give a path to your component in the `loading` option. Then, your component will be called directly by Nuxt.js.
 
-**自定义组件需要实现以下接口方法：**
+**Your component has to expose some of these methods:**
 
-| 方法 | 是否必须 | 描述 |
+| Method | Required | Description |
 |--------|----------|-------------|
-| `start()` | 是 | 路由更新（即浏览器地址变化）时调用, 请在该方法内显示组件。 |
-| `finish()` | 是 | 路由更新完毕（即`asyncData`方法调用完成且页面加载完）时调用，请在该方法内隐藏组件。 |
-| `fail()` | *否* | 路由更新失败时调用（如`asyncData`方法返回异常）。 |
-| `increase(num)` | *否* | 页面加载过程中调用, `num` 是小于 100 的整数。 |
+| `start()` | Required | Called when a route changes, this is where you display your component. |
+| `finish()` | Required | Called when a route is loaded (and data fetched), this is where you hide your component. |
+| `fail()` | *Optional* | Called when a route couldn't be loaded (failed to fetch data for example). |
+| `increase(num)` | *Optional* | Called during loading the route component, `num` is an Integer < 100. |
 
-我们可以在 `components` 目录下创建自定义的加载组件，如 `components/loading.vue`：
+We can create our custom component in `components/loading.vue`:
 ```html
 <template lang="html">
   <div class="loading-page" v-if="loading">
@@ -122,23 +120,23 @@ export default {
 </style>
 ```
 
-然后, 更新 `nuxt.config.js` 告诉 Nuxt.js 使用自定义加载组件：
+Then, we update our `nuxt.config.js` to tell Nuxt.js to use our component:
 
 ```js
-module.exports = {
-  loading: '~components/loading.vue'
+export default {
+  loading: '~/components/loading.vue'
 }
 ```
 
-## 进度条时长说明
+## Internals of the Progress Bar
 
-Loading组件不可能事先知道多长时间。加载新页面将需要。因此，无法将进度条准确地设置为100%的加载时间。
+Unfortunately it is not possible for the Loading component to know in advance how long e.g. loading a new page will take. Therefore it is not possible to accurately animate the progress bar to 100% of the loading time.
 
-Nuxt的加载组件通过让你设置 `duration` 来部分解决这个问题，这应该设置为 _guestimate_ 加载过程需要多长时间。 除非您使用自定义加载组件，否则进度条将始终在 `duration` 时间内从0%移至100%（无论实际进度如何）。 当加载时间超过 `duration` 时，进度条将保持100%直到加载完成。
+Nuxt's loading component partially solves this by letting you set the `duration`, this should be set to a _guestimate_ of how long the loading process will take. Unless you use a custom loading component, the progress bar will always move from 0% to 100% in `duration` time (regardless of actual progression). When the loading takes longer than `duration` time, the progress bar will stay at 100% until the loading finishes.
 
-您可以通过将`continuous`设置为true来更改默认行为，然后在达到100%后，进度条将在`duration`时间内再次收缩回0%。当达到0%后仍未完成加载时，它将再次从0%开始增长到100%，这将重复直到加载完成。
+You can change the default behaviour by setting `continuous` to true, then after reaching 100% the progress bar will start shrinking back to 0% again in `duration` time. When the loading is still not finished after reaching 0% it will start growing from 0% to 100% again, this repeats until the loading finishes.
 
-*持续进度条的示例：*
+*Example of a continuous progress bar:*
 
 
 <img src="/api-continuous-loading.gif" alt="continuous loading"/>
