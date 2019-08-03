@@ -1,5 +1,5 @@
 ---
-title: EASY TO USE
+title: 容易使用
 ---
 <li>Modern and Intuitive User Interface</li>
 <li>Interactive drag and drop operations</li>

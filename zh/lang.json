@@ -1,5 +1,5 @@
 {
-  "iso": "en",
+  "iso": "zh",
   "docVersion": "6.0.0",
   "links": {
     "api": "API",
@@ -38,13 +38,13 @@
       "description": "WebPivotTable run inside any browsers to mimic Excel pivot table. WebPivotTable connect to any data files, databases, OLAP cubes to analyze data on any devices anytime."
     },
     "welcome": {
-      "app_types_prefix": "For ",
-      "app_types": ["Web Site", "Web Application", "SaaS Solution", "Business Intelligence", "Data Analyst"],
-      "app_types_suffix": "."
+      "app_types_prefix": "为",
+      "app_types": ["Web网站", "Web应用程序", "SaaS方案", "商业智能", "数据分析"],
+      "app_types_suffix": "设计"
     },
-    "codepen_title": "Play with WebPivotTable online",
-    "codepen_open": "Open on CodePen.io",
-    "codepen_examples": "See more examples"
+    "codepen_title": "在线使用WebPivotTable",
+    "codepen_open": "在CodePen.io上打开",
+    "codepen_examples": "更多样例"
   },
   "doc": {
     "release_notes": "Release Notes"

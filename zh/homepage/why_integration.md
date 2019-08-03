@@ -1,5 +1,5 @@
 ---
-title: INTEGRATION
+title: 集成
 ---
 <li>e able to be integrated into any web applications or any web pages</li>
 <li>Lots of options to change the user interface and behaviours</li>

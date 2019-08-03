@@ -1,5 +1,5 @@
 ---
-title: LOW COST
+title: 低成本
 ---
 <li>Free edition is free for any personal use or commercial use purpose</li>
 <li>Pro edition adds a low cost pivot table into enterprise BI solution</li>

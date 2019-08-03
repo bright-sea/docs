@@ -1,7 +1,7 @@
 ---
-title: <span class="nWelcome_Content_Title_Primary">Pivot Table</span>
+title: <span class="nWelcome_Content_Title_Primary">数据透视表</span>
 ---
-<li>Run inside any browsers to mimic Excel pivot table.</li>
-<li>Connect to any data files, databases, OLAP cubes.</li>
-<li>Be integrated into any web pages or web applications.</li>
+<li>模仿Excel数据透视表所有功能并运行于任何浏览器中.</li>
+<li>连接任意数据文件， 数据库和OLAP cubes.</li>
+<li>方便集成到任何web网站或者web应用程序中.</li>
  

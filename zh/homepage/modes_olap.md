@@ -1,6 +1,6 @@
 ---
-title: OLAP Mode
-content_title: OLAP Mode (Microsoft SSAS, Mondrian, icCube, OLAPY)
+title: OLAP模式
+content_title: OLAP模式 (Microsoft SSAS, Mondrian, icCube, OLAPY)
 ---
 In OLAP mode, all source data are in OLAP server and all calculations are in OLAP engine on server as well. 
 WebPivotTable translates user's pivot selections to a MDX query to OLAP cubes, then render responses as pivot grid or pivot charts.

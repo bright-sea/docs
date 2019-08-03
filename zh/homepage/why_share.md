@@ -1,5 +1,5 @@
 ---
-title: SHARE
+title: 共享
 ---
 <li>Share same data sources and reports within enterprise or department</li>
 <li>Save whole data analytic to WPT format and send to others for easily reload</li>
