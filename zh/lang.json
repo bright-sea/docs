@@ -3,53 +3,53 @@
   "docVersion": "6.0.0",
   "links": {
     "api": "API",
-    "blog": "Blog",
-    "chat": "Chat",
-    "documentation": "Documentation",
+    "blog": "博客",
+    "chat": "聊天",
+    "documentation": "文档",
     "download": "下载",
     "demo": "演示",
     "contact": "联系",
-    "ecosystem": "Ecosystem",
+    "ecosystem": "生态系统",
     "faq": "FAQ",
-    "get_started": "get started",
+    "get_started": "开始使用",
     "github": "GitHub",
     "doc": "文档",
     "homepage": "首页",
-    "live_demo": "Live Demo",
-    "live_edit": "Live Edit",
+    "live_demo": "实况演示",
+    "live_edit": "实时编辑",
     "twitter": "Twitter",
     "vuejs": "Vue.js",
     "vue_jobs": "Vue Jobs"
   },
   "text": {
-    "an_error_occurred": "An error occurred",
-    "api_page_not_found": "API page not found",
-    "example_file": "Example Files",
-    "please_wait": "Please wait...",
+    "an_error_occurred": "出错了",
+    "api_page_not_found": "找不到API页",
+    "example_file": "样例文件",
+    "please_wait": "请稍等...",
     "please_define_title": "Please define a title in the front matter",
     "please_define_description": "Please define a description in the front matter",
-    "search": "Search",
-    "version": "Version"
+    "search": "搜索",
+    "version": "版本"
   },
   "homepage": {
-    "title": "WebPivotTable",
+    "title": "Web数据透视表",
     "meta": {
-      "title": "WebPivotTable",
-      "description": "WebPivotTable run inside any browsers to mimic Excel pivot table. WebPivotTable connect to any data files, databases, OLAP cubes to analyze data on any devices anytime."
+      "title": "Web数据透视表",
+      "description": "运行于任何浏览器中，模拟实现EXCEL数据透视表所有功能"
     },
     "welcome": {
-      "app_types_prefix": "为",
+      "app_types_prefix": "为 ",
       "app_types": ["Web网站", "Web应用程序", "SaaS方案", "商业智能", "数据分析"],
-      "app_types_suffix": "设计"
+      "app_types_suffix": " 设计"
     },
-    "codepen_title": "在线使用WebPivotTable",
+    "codepen_title": "在线试用Web数据透视表",
     "codepen_open": "在CodePen.io上打开",
     "codepen_examples": "更多样例"
   },
   "doc": {
-    "release_notes": "Release Notes"
+    "release_notes": "发行说明"
   },
   "demo": {
-    "source_code": "Source Code"
+    "source_code": "源代码"
   }
 }

@@ -1,6 +1,6 @@
 ---
 title: WEB BASED
 ---
-<li>Pure javascript run inside any browsers</li>
+<li>Pure web component inside browsers</li>
 <li>Cross platforms, devices and browsers</li>
-<li>No installation and upgrade for end users</li>
+<li>No installation/upgrade for end users</li>

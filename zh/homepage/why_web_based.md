@@ -1,6 +1,6 @@
 ---
 title: 基于WEB
 ---
-<li>Pure javascript run inside any browsers</li>
-<li>Cross platforms, devices and browsers</li>
-<li>No installation and upgrade for end users</li>
+<li>纯WEB组件可以运行于任何浏览器中</li>
+<li>跨平台， 跨设备， 跨浏览器</li>
+<li>最终用户无需任何安装和升级</li>
