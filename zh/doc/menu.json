@@ -1,22 +1,22 @@
 [
   {
-    "title": "Prologue",
+    "title": "序言",
     "links": [
       {
-        "to": "", "name": "Introduction",
+        "to": "", "name": "介绍",
         "contents": [
-          { "to": "#what-39-s-pivot-table-", "name": "What's Pivot Table?" },
-          { "to": "#pivot-table-examples", "name": "Pivot Table Examples" },
-          { "to": "#history-of-pivot-table", "name": "History of Pivot Table" }
+          { "to": "#what-39-s-pivot-table-", "name": "什么是数据透视表?" },
+          { "to": "#pivot-table-examples", "name": "数据透视表例子" },
+          { "to": "#history-of-pivot-table", "name": "数据透视表历史" }
         ]
       },
       {
-        "to": "/quick-start-guide", "name": "Quick Start Guide",
+        "to": "/quick-start-guide", "name": "开速开始指南",
         "contents": [
-          { "to": "#download", "name": "Download" },
-          { "to": "#installation", "name": "Installation" },
-          { "to": "#integration", "name": "Integration" },
-          { "to": "#customization", "name": "Customization" }
+          { "to": "#download", "name": "下载" },
+          { "to": "#installation", "name": "安装" },
+          { "to": "#integration", "name": "集成" },
+          { "to": "#customization", "name": "定制" }
         ]
       },
       {
