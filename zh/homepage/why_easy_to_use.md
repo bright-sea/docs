@@ -1,6 +1,6 @@
 ---
 title: 容易使用
 ---
-<li>Modern and Intuitive User Interface</li>
-<li>Interactive drag and drop operations</li>
-<li>Responsive design for cross devices</li>
+<li>现代化直观的用户界面</li>
+<li>交互式拖放操作</li>
+<li>适应所有设备的响应式设计</li>

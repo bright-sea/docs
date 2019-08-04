@@ -1,6 +1,6 @@
 ---
 title: SHARE
 ---
-<li>Share same data sources and reports within enterprise or department</li>
-<li>Save whole data analytic to WPT format and send to others for easily reload</li>
-<li>Export reports to PDF, EXCEL, HTML, CSV formats for easily distribution</li>
+<li>Share same source data within enterprise</li>
+<li>Save analytic reports for easily reload</li>
+<li>Export report to PDF/EXCEL/HTML formats</li>

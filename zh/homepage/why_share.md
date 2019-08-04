@@ -1,6 +1,6 @@
 ---
 title: 共享
 ---
-<li>Share same data sources and reports within enterprise or department</li>
-<li>Save whole data analytic to WPT format and send to others for easily reload</li>
-<li>Export reports to PDF, EXCEL, HTML, CSV formats for easily distribution</li>
+<li>在企业内部共享数据源</li>
+<li>保存分析报告以方便的重载复原</li>
+<li>输出报表成 PDF/EXCEL/HTML 格式</li>

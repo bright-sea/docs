@@ -1,6 +1,6 @@
 ---
 title: 集成
 ---
-<li>e able to be integrated into any web applications or any web pages</li>
-<li>Lots of options to change the user interface and behaviours</li>
-<li>APIs to load any kind of source data and to communicate with server side</li>
+<li>嵌入到任何网站或WEB应用程序</li>
+<li>提供了各种定制用户界面和行为的选项</li>
+<li>提供了大量连接数据和输出报表的API</li>

@@ -1,6 +1,6 @@
 ---
 title: 低成本
 ---
-<li>Free edition is free for any personal use or commercial use purpose</li>
-<li>Pro edition adds a low cost pivot table into enterprise BI solution</li>
-<li>Leverage open source Web technologies to cut down enterprise integration cost</li>
+<li>个人或非商业应用完全免费</li>
+<li>低成本的企业商业应用</li>
+<li>低成本的OEM或者SaaS方案</li>

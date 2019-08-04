@@ -1,6 +1,6 @@
 ---
 title: 功能强大
 ---
-<li>Full functional pivot table and charts</li>
-<li>All kinds of filter, sort, format, layout</li>
-<li>Drill through and calculated fields</li>
+<li>全功能的数据透视表和透视图</li>
+<li>各种过滤，索引， 格式和布局</li>
+<li>数据钻取和计算字段</li>
