@@ -37,6 +37,14 @@
           { "to": "#low-cost", "name": "Low cost" }
         ]
       },
+      {
+        "to": "/data-sources", "name": "Data Sources",
+        "contents": [
+          { "to": "#memory-mode", "name": "Memory mode data source" },
+          { "to": "#olap-mode", "name": "OLAP mode data source" },
+          { "to": "#server-mode", "name": "Server mode data source" }
+        ]
+      },
       { "to": "/webpivottable-editions", "name": "WebPivotTable Editions",
         "contents": [
           { "to": "#free-edition", "name": "Free Edition" },

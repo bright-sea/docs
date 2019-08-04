@@ -38,9 +38,9 @@
       "description": "运行于任何浏览器中，模拟实现EXCEL数据透视表所有功能"
     },
     "welcome": {
-      "app_types_prefix": "为 ",
+      "app_types_prefix": "应用于 ",
       "app_types": ["Web网站", "Web应用程序", "SaaS方案", "商业智能", "数据分析"],
-      "app_types_suffix": " 设计"
+      "app_types_suffix": " ."
     },
     "codepen_title": "在线试用Web数据透视表",
     "codepen_open": "在CodePen.io上打开",

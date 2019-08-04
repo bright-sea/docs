@@ -1,6 +1,13 @@
 ---
 title: 服务器模式
-content_title: 服务器模式 (开发中 ...)
----              
-Server mode is a developing new data source mode. Like OLAP mode, all source data and all calculations are at server side, WebPivotTable just serves as a client tool.
-But unlike OLAP mode which need an OLAP server and OLAP engine, source data can be any kind of data.  
+content_title: 服务器模式
+content_subtitle: (正在开发中 ...)
+---               
+Memory mode has a limitation of data size as all data and calculations in browser's memory.
+OLAP mode has no data size limitation but depends on an existing OLAP solution. 
+Server mode is a developing new data source mode to deal with these limitations.
+
+In server mode, both data format and calculation mechanism are the same as memory mode. 
+But the difference is data are not loaded into browser's memory, instead data are loaded in a dedicated server.
+And all calculations run on that server as well.
+WebPivotTable serve as a client tool.

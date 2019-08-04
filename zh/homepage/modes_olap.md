@@ -1,12 +1,11 @@
 ---
 title: OLAP模式
-content_title: OLAP模式 (Microsoft SSAS, Mondrian, icCube, OLAPY)
+content_title: OLAP模式
+ontent_subtitle: (Microsoft SSAS, Mondrian, icCube, OLAPY, etc.)
 ---
-In OLAP mode, all source data are in OLAP server and all calculations are in OLAP engine on server as well. 
-WebPivotTable translates user's pivot selections to a MDX query to OLAP cubes, then render responses as pivot grid or pivot charts.
-There is no limitation of source data size. The data size and performance are all depends on OLAP server.
+OLAP(online analytical processing) enable users to analyze multidimensional data interactively.
+In OLAP mode, all data persistent in an OLAP database and all calculations run in an OLAP server. 
 
-There are lots of OLAP engine on market, some are commercial, some are open sources. Microsoft SSAS is most popular one. Mondrain is most popular open source OLAP engine.
-Others, like icCube and OLAPY.
-
-WebPivotTable support all these OLAP engines.
+There are lots of OLAP server implementation. Microsoft SSAS is widely used commercial one.
+Mondrian is most popular open source one. icCube and OLAPY are also open sourced.
+WebPivotTable can connect to these OLAP servers directly and serve as a client tool.
