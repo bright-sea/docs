@@ -29,7 +29,8 @@
     "please_define_title": "Please define a title in the front matter",
     "please_define_description": "Please define a description in the front matter",
     "search": "Search",
-    "version": "Version"
+    "version": "Version",
+    "copyright": "Copyright © 2011-2019 Brightsea Inc. All Rights Reserved."
   },
   "homepage": {
     "title": "WebPivotTable",
@@ -43,6 +44,7 @@
       "app_types_suffix": "."
     },
     "codepen_title": "Try WebPivotTable online",
+    "codepen_loading": "Loading Pen...",
     "codepen_open": "Open on CodePen.io",
     "codepen_examples": "See more examples"
   },

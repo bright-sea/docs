@@ -29,7 +29,8 @@
     "please_define_title": "Please define a title in the front matter",
     "please_define_description": "Please define a description in the front matter",
     "search": "搜索",
-    "version": "版本"
+    "version": "版本",
+    "copyright": "©2011-2019 Brightsea Inc. 版权所有."
   },
   "homepage": {
     "title": "Web数据透视表",
@@ -43,6 +44,7 @@
       "app_types_suffix": " ."
     },
     "codepen_title": "在线试用Web数据透视表",
+    "codepen_loading": "正在加载...",
     "codepen_open": "在CodePen.io上打开",
     "codepen_examples": "更多样例"
   },
