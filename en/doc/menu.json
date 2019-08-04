@@ -5,9 +5,9 @@
       {
         "to": "", "name": "Introduction",
         "contents": [
-          { "to": "#what-39-s-pivot-table-", "name": "What's Pivot Table?" },
-          { "to": "#pivot-table-examples", "name": "Pivot Table Examples" },
-          { "to": "#history-of-pivot-table", "name": "History of Pivot Table" }
+          { "to": "#what-is-pivot-table-", "name": "What's Pivot Table?"},
+          { "to": "#what-is-webpivottable-", "name": "What's WebPivotTable?" },
+          { "to": "#how-it-works", "name": "How it works?" }
         ]
       },
       {

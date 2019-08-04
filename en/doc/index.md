@@ -3,8 +3,8 @@ title: Introduction
 description: "WebPivotTable"
 ---
 
-__WebPivotTable__ is a pure javascript component which mimics all functionalities of Microsoft Excel Pivot Table
-and run totally inside any browsers. It can be easily embedded into any web pages or any web applications. 
+__WebPivotTable__ is a web component that mimics Microsoft Excel Pivot Table and run inside any browsers. 
+It can easily be embedded into any web sites or any web applications. 
 
 [Demos](/demo) <br/>
 
@@ -13,7 +13,9 @@ and run totally inside any browsers. It can be easily embedded into any web page
 [Why WebPivotTable](/doc/why-webpivottable)
 
 
-## What's Pivot Table?
+## What is Pivot Table?
+
+> This section is a quick introduction of pivot table. If you know pivot table already, feel free to skip to next section [What is WebPivotTable?](#what-is-webpivottable-). 
 
 <p class="Alert Alert--info">
 In data processing, a pivot table is a data summarization tool found in data visualization programs such as spreadsheets
@@ -30,7 +32,7 @@ particular financial quarter, it would be very time-consuming for her to look th
 the information. A pivot table would allow the owner to quickly reorganize the data and create a summary for each item
 for the quarter in question.
 
-## Pivot Table Examples
+### Pivot Table Examples
 
 There are a lot of articles, tutorials, videos on Web to help people learn how to use pivot table.
 
@@ -38,11 +40,12 @@ There are a lot of articles, tutorials, videos on Web to help people learn how t
 
 [Bill Jelen, Michael Alexander: Pivot Table Data Crunching](http://www.mrexcel.com/2013books/pvttdc2013book.html)
 
-[Use Excel Pivot Tables to Organize Data](http://www.timeatlas.com/excel-pivot-tables/) is a good example demonstrating how to use Excel Pivot Table to analyse some election data.
-On our [WebPivotTable Demo Page](/demo), there are demos demonstrating to use WebPivotTable to analyse the same data set more intuitively and more easily.
+[Use Excel Pivot Tables to Organize Data](http://www.timeatlas.com/excel-pivot-tables/) 
+is a good example demonstrating how to use Excel Pivot Table to analyze some election data.
+On [WebPivotTable Demo Page](/demo), there are some demos how to use WebPivotTable to analyze the same data set.
  
 
-## History of Pivot Table
+### History of Pivot Table
 
 The concept of pivot table came from Lotus Software (called Lotus Development Corporation before its acquisition by IBM)
 with a revolutionary spreadsheet program called Lotus Improv at 1987. In 1988, Steve Jobs saw the program and immediately
@@ -64,7 +67,9 @@ data instead of getting the data from an Excel spreadsheet. A pivot table is a s
 Almost all major BI vendors, like IBM, Microsoft, Oracle, SAP, SAS, Pentaho, MicroStrategy, provide their own pivot
 client tools to query their OLAP servers.
 
-<p class="Alert Alert--info">
-WebPivotTable is a new pivot table implementation leverage Web technologies. It is web based and provides pivot
-functionalities both for spreadsheet data and OLAP servers.
-</p>
+## What is WebPivotTable?
+
+In short, WebPivotTable is a new pivot table implementation leverage Web component technologies. It is web based and provides pivot
+table functionality on both spreadsheet data and OLAP cubes.
+
+### Web Component
