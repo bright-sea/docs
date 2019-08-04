@@ -3,11 +3,15 @@ title: 服务器模式
 content_title: 服务器模式
 content_subtitle: (正在开发中 ...)
 ---               
-Memory mode has a limitation of data size as all data and calculations in browser's memory.
-OLAP mode has no data size limitation but depends on an existing OLAP solution. 
-Server mode is a developing new data source mode to deal with these limitations.
+<p>
+因为所有数据和计算都在浏览器内存中，所以内存模式对数据的大小有限制。
+OLAP模式虽然没有数据大小的限制，但是依赖于一个已经存在的OLAP解决方案。 
+服务器模式是一个正在开发中的解决这些不足的新的数据源模式。
+</p>
 
-In server mode, both data format and calculation mechanism are the same as memory mode. 
-But the difference is data are not loaded into browser's memory, instead data are loaded in a dedicated server.
-And all calculations run on that server as well.
-WebPivotTable serve as a client tool.
+<p>
+在服务器模式，数据的格式和计算机制都和内存模式一样。 
+不同的是数据不是加载到浏览器内存中， 而是加载到一个专用的服务器中。
+所有的计算也在服务器上运行。
+Web数据透视表可作为一个客户端工具使用。
+</p>
