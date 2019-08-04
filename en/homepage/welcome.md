@@ -1,6 +1,6 @@
 ---
 title: <span class="nWelcome_Content_Title_Primary">Pivot Table</span>
 ---
-<p>Run inside any browsers to mimic Excel pivot table.</p>
-<p>Connect to any data files, databases, OLAP cubes.</p>
-<p>Embedded into any web sites or web applications.</p>
+<p>Runs inside any browser, emulates an Excel pivot table.</p>
+<p>Connects to any data files, databases, OLAP cubes.</p>
+<p>Embeds into any web site or web application.</p>

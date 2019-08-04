@@ -1,4 +1,4 @@
 ---
 title: Welcome figure - video
 ---
-WebPivotTable overall demo.
+What is WebPivotTable?

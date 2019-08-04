@@ -1,6 +1,6 @@
 ---
 title: WEB BASED
 ---
-<li>Web component run inside any browsers</li>
-<li>Cross platforms, devices and browsers</li>
-<li>No installation/upgrade for end users</li>
+<li>A Web component for any browser</li>
+<li>Cross platform/devices through the web</li>
+<li>No installation hassle for end users</li>

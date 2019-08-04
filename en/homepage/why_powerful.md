@@ -1,6 +1,6 @@
 ---
 title: POWERFUL
 ---
-<li>Full functional pivot table and charts</li>
-<li>All kinds of filter, sort, format, layout</li>
-<li>Drill through and calculated fields</li>
+<li>Fully functional pivot table and charts</li>
+<li>Filter, sort, graph, layout, drill through</li>
+<li>Statistical analysis and calculated fields</li>
