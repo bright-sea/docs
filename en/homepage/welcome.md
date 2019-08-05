@@ -1,5 +1,5 @@
 ---
-title: <span class="nWelcome_Content_Title_Primary">Pivot Table</span>
+title: WebPivotTable (WPT) is a Pivot Table
 ---
 <p>Runs inside any browser, emulates an Excel pivot table.</p>
 <p>Connects to any data files, databases, OLAP cubes.</p>

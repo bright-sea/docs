@@ -4,12 +4,12 @@ content_title: OLAP mode
 content_subtitle: (Microsoft SSAS, Mondrian, icCube, OLAPY, etc.)
 ---
 <p>
-OLAP(online analytical processing) enable users to analyze multidimensional data interactively.
-In OLAP mode, all data persistent in an OLAP database and all calculations run in an OLAP server. 
+OLAP (online analytical processing) infrastructures enable users to analyze multidimensional data interactively.
+In OLAP mode, WPT can connect to an OLAP server that handles data and computation. WPT then acts as an interface
+for pivotting and displaying the data.
 </p>
 
 <p>
-There are lots of OLAP server implementation. Microsoft SSAS is widely used commercial one.
-Mondrian is most popular open source one. icCube and OLAPY are also open sourced.
-WebPivotTable can connect to these OLAP servers directly and serve as a client tool.
+There are a lot of OLAP server implementations. Microsoft SSAS is a widely used commercial solution while
+open source solutions such as Mondrian, icCube and OLAPY are also supported by WPT.
 </p>
