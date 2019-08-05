@@ -3,8 +3,9 @@ title: Introduction
 description: "WebPivotTable"
 ---
 
-__WebPivotTable__ is a web component that mimics Microsoft Excel Pivot Table and run inside any browsers. 
-It can easily be embedded into any web sites or any web applications. 
+__WebPivotTable__ is an implementation of the pivot table tool used to analyze data and generate reports.
+Unlike Microsoft Excel's Pivot Table ,which is a desktop application, WPT is a fully independent web component
+that can be inserted into any web page with a little HTML and JavaScript.
 
 [Demos](/demo) <br/>
 
@@ -15,8 +16,9 @@ It can easily be embedded into any web sites or any web applications.
 
 ## What is Pivot Table?
 
-> This section is a quick introduction of pivot table. If you know pivot table already, feel free to skip to next section [What is WebPivotTable?](#what-is-webpivottable-). 
+> This section is a quick introduction to pivot tables. Skip to the next section [What is WebPivotTable?](#what-is-webpivottable-) for specific information about our product. 
 
+Below is a brief excerpt from Wikipedia:
 <p class="Alert Alert--info">
 In data processing, a pivot table is a data summarization tool found in data visualization programs such as spreadsheets
 or business intelligence software. Among other functions, a pivot table can automatically sort, count total
@@ -26,11 +28,15 @@ The user sets up and changes the summary's structure by dragging and dropping fi
 This "rotation" or pivoting of the summary table gives the concept its name.
 </p>
 
+### Purpose
+
 A pivot table is especially useful with large amounts of data. For example, a store owner might list monthly sales totals
 for a large number of merchandise items in an Excel spreadsheet. If the owner wanted to know which items sold better in a
-particular financial quarter, it would be very time-consuming for her to look through pages and pages of figures to find
+particular financial quarter, it would be very time-consuming for them to look through pages of figures to find
 the information. A pivot table would allow the owner to quickly reorganize the data and create a summary for each item
 for the quarter in question.
+
+
 
 ### Pivot Table Examples
 
