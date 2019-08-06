@@ -45,9 +45,9 @@
       "app_types": ["Web Sites", "Web Applications", "SaaS Solutions", "Business Intelligence", "Data Analysis"],
       "app_types_suffix": ""
     },
-    "codepen_title": "Try WebPivotTable online",
-    "codepen_open": "Open on CodePen.io",
-    "codepen_examples": "See more examples"
+    "try_title": "Try WebPivotTable online",
+    "try_url": "https://webpivottable.com/releases/latest/demo.html",
+    "try_examples": "See more examples"
   },
   "doc": {
     "release_notes": "Release Notes"
