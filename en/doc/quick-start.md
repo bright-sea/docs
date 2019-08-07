@@ -35,7 +35,7 @@ In the head of your web page html file, import wpt.js from our CDN:
 That's all. Now open your web page. A fully functional WebPivotTable has been embedded into your page.
 
 
-You can watch this on [Quick Start Demo](/demo/quick-start-demo)
+You can watch this on [Quick Start Demo](/demo)
 
 If you need deep integration, please see our [Integration Guide](/doc/integration-guide)
 
