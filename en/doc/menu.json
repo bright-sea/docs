@@ -11,13 +11,7 @@
         ]
       },
       {
-        "to": "/quick-start-guide", "name": "Quick Start Guide",
-        "contents": [
-          { "to": "#download", "name": "Download" },
-          { "to": "#installation", "name": "Installation" },
-          { "to": "#integration", "name": "Integration" },
-          { "to": "#customization", "name": "Customization" }
-        ]
+        "to": "/quick-start", "name": "Quick Start"
       },
       {
         "to": "/release-notes", "name": "Release Notes",
@@ -57,7 +51,13 @@
     "title": "References",
     "links": [
       {
-        "to": "/integration", "name": "Integration"
+        "to": "/integration-guide", "name": "Integration Guide",
+        "contents": [
+          { "to": "#download", "name": "Download" },
+          { "to": "#installation", "name": "Installation" },
+          { "to": "#integration", "name": "Integration" },
+          { "to": "#customization", "name": "Customization" }
+        ]
       },
       {
         "to": "/options", "name": "Options",

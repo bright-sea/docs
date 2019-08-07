@@ -9,7 +9,7 @@ that can be inserted into any web page with a little HTML and JavaScript.
 
 [Demos](/demo) <br/>
 
-[Quick Start Guide](/doc/quick-start-guide) <br/>
+[Quick Start](/doc/quick-start) <br/>
 
 [Why WebPivotTable](/doc/why-webpivottable)
 

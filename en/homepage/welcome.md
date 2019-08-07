@@ -1,5 +1,5 @@
 ---
-title: WebPivotTable (WPT) is a Pivot Table
+title: WebPivotTable is a Pivot Table
 ---
 <p>Runs inside any browser, emulates an Excel pivot table.</p>
 <p>Connects to any data files, databases, OLAP cubes.</p>

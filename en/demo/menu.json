@@ -3,8 +3,12 @@
     "title": "Essentials",
     "links": [
       {
-        "name": "Quick Start",
+        "name": "Quick Start Demo",
         "to": ""
+      },
+      {
+        "name": "Overview Demo",
+        "to": "/overview"
       }
     ]
   }

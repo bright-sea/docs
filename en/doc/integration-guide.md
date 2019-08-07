@@ -1,6 +1,6 @@
 ---
-title: Quick Start Guide
-description: "WebPivotTable quick start guide"
+title: Integration
+description: "WebPivotTable integration guide"
 ---
 
 ## Download

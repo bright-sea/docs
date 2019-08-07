@@ -1,23 +1,17 @@
 [
   {
-    "title": "序言",
+    "title": "Prologue",
     "links": [
       {
-        "to": "", "name": "介绍",
+        "to": "", "name": "Introduction",
         "contents": [
-          { "to": "#what-39-s-pivot-table-", "name": "什么是数据透视表?" },
-          { "to": "#pivot-table-examples", "name": "数据透视表例子" },
-          { "to": "#history-of-pivot-table", "name": "数据透视表历史" }
+          { "to": "#what-is-pivot-table-", "name": "What's Pivot Table?"},
+          { "to": "#what-is-webpivottable-", "name": "What's WebPivotTable?" },
+          { "to": "#how-it-works", "name": "How it works?" }
         ]
       },
       {
-        "to": "/quick-start-guide", "name": "开速开始指南",
-        "contents": [
-          { "to": "#download", "name": "下载" },
-          { "to": "#installation", "name": "安装" },
-          { "to": "#integration", "name": "集成" },
-          { "to": "#customization", "name": "定制" }
-        ]
+        "to": "/quick-start", "name": "Quick Start"
       },
       {
         "to": "/release-notes", "name": "Release Notes",
@@ -37,6 +31,14 @@
           { "to": "#low-cost", "name": "Low cost" }
         ]
       },
+      {
+        "to": "/data-sources", "name": "Data Sources",
+        "contents": [
+          { "to": "#memory-mode", "name": "Memory mode data source" },
+          { "to": "#olap-mode", "name": "OLAP mode data source" },
+          { "to": "#server-mode", "name": "Server mode data source" }
+        ]
+      },
       { "to": "/webpivottable-editions", "name": "WebPivotTable Editions",
         "contents": [
           { "to": "#free-edition", "name": "Free Edition" },
@@ -49,7 +51,13 @@
     "title": "References",
     "links": [
       {
-        "to": "/integration", "name": "Integration"
+        "to": "/integration-guide", "name": "Integration Guide",
+        "contents": [
+          { "to": "#download", "name": "Download" },
+          { "to": "#installation", "name": "Installation" },
+          { "to": "#integration", "name": "Integration" },
+          { "to": "#customization", "name": "Customization" }
+        ]
       },
       {
         "to": "/options", "name": "Options",
