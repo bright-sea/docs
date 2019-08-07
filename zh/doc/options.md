@@ -38,7 +38,7 @@ There are two ways to set options:
   ```javascript
     var wpt = document.getElementsByTagName('web-pivot-table')[0];
   
-    wpt.$eventBus.$emit('setOptions', {
+    wpt.setOptions({
       localeFilePath: "./lang/",
       locale: "en",
       leavePageWarning: 0
@@ -47,10 +47,6 @@ There are two ways to set options:
   Since we can pass javascript object as parameters of `setOptions` API and it will be **deeply merged** into
   default options, this is a better way to set complicate options.
 
-  <div class="Alert Alert--orange">
-  `setOption` API is one of serveral APIs which are availabe on both Free edition and Pro edition.  
-  </div>
-  
 
 <h2 id="leave-page-warning"> `leavePageWarning` </h2>
 
