@@ -1,5 +1,5 @@
 ---
-title: WebPivotTable is a Pivot Table
+title: The Pivot Table Component
 ---
 <p>Runs inside any browser, emulates an Excel pivot table.</p>
 <p>Connects to any data files, databases, OLAP cubes.</p>
