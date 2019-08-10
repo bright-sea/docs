@@ -3,22 +3,16 @@
     "title": "Prologue",
     "links": [
       {
-        "to": "", "name": "Introduction",
-        "contents": [
-          { "to": "#what-is-pivot-table-", "name": "What's Pivot Table?"},
-          { "to": "#what-is-webpivottable-", "name": "What's WebPivotTable?" },
-          { "to": "#how-it-works", "name": "How it works?" }
-        ]
+        "to": "", "name": "Introduction"
       },
       {
         "to": "/quick-start", "name": "Quick Start"
       },
       {
-        "to": "/release-notes", "name": "Release Notes",
-        "contents": [
-          { "to": "#version-5-0-0", "name": "Version 5.0.0" },
-          { "to": "#version-4-x", "name": "Version 4.x" }
-        ]
+        "to": "/pivot-table", "name": "Pivot Table"
+      },
+      {
+        "to": "/web-component", "name": "Web Component"
       },
       {
         "to": "/why-webpivottable", "name": "Why WebPivotTable?",
@@ -44,6 +38,9 @@
           { "to": "#free-edition", "name": "Free Edition" },
           { "to": "#pro-edition", "name": "Pro Edition" }
         ]
+      },
+      {
+        "to": "/release-notes", "name": "Release Notes"
       }
     ]
   },
