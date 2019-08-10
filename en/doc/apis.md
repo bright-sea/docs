@@ -7,46 +7,28 @@ WebPivotTable provides lots of APIs for developers to call them from hosted web 
 For example, developers can use these APIs to load source data from any kind of
 resources, or save reports to local files or server then reload them in future, etc.
 
-<div class="Alert Alert--orange">
-Except a few APIs are supported by both Free edition and Pro edition, almost all APIs are available in Pro edition only.
-</div>
-
-
 <h2 id="how-to-call-apis"> How to call APIs? </h2>
 
-*WebPivotTable APIs are implemented based on event bus mechanism. An event bus is a mechanism that allows different components
-to communicate with each other without knowing about each other. A component can send an event to the event bus without
-knowing who will pick it up or how many others will pick it up. Components can also listen to events on an event bus,
-without knowing who sent the events. That way, components can communicate without depending on each other.*
-
-
-There is an "$eventBus" property of initialed WebPivotTable object. This property is an event bus. We can use it to emit events to
-WebPivotTable and trigger some internal logic of WebPivotTable. This event emit mechanism is the key how APIs works.
+*WebPivotTable follow web component standard. We can put WebPivotTable on any web page just like it is a HTML tag.
+When web page loaded, there is a corresponding element created on DOM. Then we can call DOM "document.getElementsByTagName"
+to get an javascript object of the element. Each API of WebPivotTable is a method of this javascript object.*
 
 Below is standard syntax to call APIs:  
 
 ```javascript
 var wpt = document.getElementsByTagName('web-pivot-table')[0];
 
-wpt.$eventBus.$emit(apiName, params1, params2, ..., paramsn);
+wpt.apiName(params1, params2, ..., paramsn);
 ```
 
-First, we need get WebPivotTable object, then call $emit method of this object's $eventBus props,
-passing with API name together with a list of params.
-
-Since event bus is asynchronous, we should pass callbacks as params if we want to add some logic when API call succeed
- with response or failed with error.<br><br>
+Most of WebPivotTable APIs are asynchronous, it will return a Promise.  
   
-<div class="Alert Alert--info">
-Except "$emit" method, "$eventBus" has an "$on" method to be used to listen to some events emit from WebPivotTable.
-See [Events](/doc/events) for more details.    
-</div>
   
 
 <h2 id="set-locale">`setLocale`</h2>
 
 ```javascript
-wpt.$eventBus.$emit("setLocale", locale);
+wpt.setLocale(locale);
 ```
 | Param Name       | Param Type    | Optional   | Description                 |
 |------------------|---------------|------------|-----------------------------|
@@ -56,7 +38,7 @@ wpt.$eventBus.$emit("setLocale", locale);
 <h2 id="set-options"> `setOptions` </h2>
 
 ```javascript
-wpt.$eventBus.$emit("setOptions", options);
+wpt.setOptions(options);
 ```
 | Param Name       | Param Type    | Optional   | Description                 |
 |------------------|---------------|------------|-----------------------------|
@@ -66,17 +48,7 @@ wpt.$eventBus.$emit("setOptions", options);
 This `setOptions` API is a major way to customize WebPivotTable, see [Options](/doc/options) for more details.
 </div>
 
-<h2 id="set-view"> `setView` </h2>
-
-```javascript
-wpt.$eventBus.$emit("setView", view);
-```
-| Param Name       | Param Type    | Optional   | Description                 |
-|------------------|---------------|------------|-----------------------------|
-| `view`           | `string`      | no         | "SOURCE/SHEET/REPORT"       |
-
-
-<h2 id="set-data-array"> `setDataArray`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-data-array"> `setDataArray`  
 
 ```javascript
 wpt.$eventBus.$emit("setDataArray", attrArray, dataArray, dataUrl, wptObject, successCB, errorCB);
@@ -101,7 +73,7 @@ Notes:
   and format them as attrArray and dataArray, then load them into WebPivotTable.
 
 
-<h2 id="set-csv-url"> `setCsvUrl`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-csv-url"> `setCsvUrl`  
 
 ```javascript
 wpt.$eventBus.$emit("setCsvUrl", csvUrl, separator, wptObject, successCB, errorCB);
@@ -120,7 +92,7 @@ Notes:
 - If `wptObject` is not null, use it as pre-saved pivot selections
 
 
-<h2 id="set-wpt-string"> `setWptString`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-wpt-string"> `setWptString`  
 
 ```javascript
 wpt.$eventBus.$emit("setWptString", wptString, dataObject, successCB, errorCB);
@@ -136,7 +108,7 @@ Load WPT format String
   
 
 
-<h2 id="set-wpt-object"> `setWptObject`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-wpt-object"> `setWptObject`  
 
 ```javascript
 wpt.$eventBus.$emit("setWptObject", wptObject, dataObject, successCB, errorCB);
@@ -152,7 +124,7 @@ Load WPT format JSON Oject
   
 
 
-<h2 id="set-wpt"> `setWpt`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-wpt"> `setWpt`  
 
 ```javascript
 wpt.$eventBus.$emit("setWpt", wpt, dataObject, successCB, errorCB);
@@ -167,7 +139,7 @@ wpt.$eventBus.$emit("setWpt", wpt, dataObject, successCB, errorCB);
 Load WPT format String or JSON Object with updated first source data
   
 
-<h2 id="generate-wpt-string"> `generateWptString`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="generate-wpt-string"> `generateWptString`  
 
 ```javascript
 wpt.$eventBus.$emit("generateWptString", ignoreData, successCB);
@@ -180,7 +152,7 @@ wpt.$eventBus.$emit("generateWptString", ignoreData, successCB);
 Generate WPT format string
   
 
-<h2 id="generate-wpt-json"> `generateWptJSON`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="generate-wpt-json"> `generateWptJSON`  
 
 ```javascript
 wpt.$eventBus.$emit("generateWptJSON", ignoreData, successCB);
@@ -193,7 +165,7 @@ wpt.$eventBus.$emit("generateWptJSON", ignoreData, successCB);
 Generate WPT format JSON object
   
 
-<h2 id="set-olap-cube"> `setOlapCube`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-olap-cube"> `setOlapCube`  
 
 ```javascript
 wpt.$eventBus.$emit("setOlapCube", olapData, successCB, errorCB);
@@ -215,7 +187,7 @@ olapData: {
 }
 ```
 
-<h2 id="set-web-service-data-url"> `setWebServiceDataUrl`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="set-web-service-data-url"> `setWebServiceDataUrl`  
 
 ```javascript
 wpt.$eventBus.$emit("setWebServiceDataUrl", wsDataUrl, wptObject, successCB, errorCB);
@@ -243,7 +215,7 @@ Notes:
     since Web Service access is cross domain and can be provided by any backend technologies.
 
 
-<h2 id="add-web-service-data-url"> `addWebServiceDataUrl`  <span class="Alert Alert--orange"> Pro edition only.</span> </h2>
+<h2 id="add-web-service-data-url"> `addWebServiceDataUrl`  
 
 ```javascript
 wpt.$eventBus.$emit("addWebServiceDataUrl", wsDataUrl, successCB, errorCB);

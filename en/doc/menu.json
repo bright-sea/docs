@@ -6,23 +6,26 @@
         "to": "", "name": "Introduction"
       },
       {
-        "to": "/quick-start", "name": "Quick Start"
-      },
-      {
         "to": "/pivot-table", "name": "Pivot Table"
       },
       {
         "to": "/web-component", "name": "Web Component"
+      }
+    ]
+  },
+  {
+    "title": "Guides",
+    "links": [
+      {
+        "to": "/quick-start", "name": "Quick Start"
       },
       {
-        "to": "/why-webpivottable", "name": "Why WebPivotTable?",
+        "to": "/integration-guide", "name": "Integration Guide",
         "contents": [
-          { "to": "#web-based", "name": "Web based" },
-          { "to": "#easy-to-use", "name": "Easy to use" },
-          { "to": "#powerful", "name": "Powerful" },
+          { "to": "#download", "name": "Download" },
+          { "to": "#installation", "name": "Installation" },
           { "to": "#integration", "name": "Integration" },
-          { "to": "#share", "name": "Share" },
-          { "to": "#low-cost", "name": "Low cost" }
+          { "to": "#customization", "name": "Customization" }
         ]
       },
       {
@@ -40,6 +43,18 @@
         ]
       },
       {
+        "to": "/internationalization", "name": "Internationalization"
+      },
+      {
+        "to": "/cross-domain-access", "name": "Cross domain access",
+        "contents": [
+          { "to": "#same-origin-policy", "name": "Same-origin Policy" },
+          { "to": "#cross-origin-resource-sharing", "name": "Cross-Origin Resource Sharing" },
+          { "to": "#proxy-server", "name": "Proxy Server" },
+          { "to": "#default-proxy-server", "name": "Default Proxy Server" }
+        ]
+      },
+      {
         "to": "/release-notes", "name": "Release Notes"
       }
     ]
@@ -48,13 +63,7 @@
     "title": "References",
     "links": [
       {
-        "to": "/integration-guide", "name": "Integration Guide",
-        "contents": [
-          { "to": "#download", "name": "Download" },
-          { "to": "#installation", "name": "Installation" },
-          { "to": "#integration", "name": "Integration" },
-          { "to": "#customization", "name": "Customization" }
-        ]
+        "to": "/constants", "name": "Constants"
       },
       {
         "to": "/options", "name": "Options",
@@ -113,18 +122,6 @@
           { "to": "#open-wpt", "name": "openWpt" },
           { "to": "#save-wpt", "name": "saveWpt" },
           { "to": "#drill-through", "name": "drillThrough" }
-        ]
-      },
-      {
-        "to": "/internationalization", "name": "Internationalization"
-      },
-      {
-        "to": "/cross-domain-access", "name": "Cross domain access",
-        "contents": [
-          { "to": "#same-origin-policy", "name": "Same-origin Policy" },
-          { "to": "#cross-origin-resource-sharing", "name": "Cross-Origin Resource Sharing" },
-          { "to": "#proxy-server", "name": "Proxy Server" },
-          { "to": "#default-proxy-server", "name": "Default Proxy Server" }
         ]
       },
       {

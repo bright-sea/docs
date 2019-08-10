@@ -3,9 +3,9 @@ title: Pivot Table
 description: "Pivot Table"
 ---
 
-### What is Pivot Table?
+### What's Pivot Table?
 
-Below is a brief excerpt from Wikipedia:
+Below is a brief excerpt from [Wikipedia](https://en.wikipedia.org/wiki/Pivot_table):
 <p class="Alert Alert--info">
 In data processing, a pivot table is a data summarization tool found in data visualization programs such as spreadsheets
 or business intelligence software. Among other functions, a pivot table can automatically sort, count total
@@ -15,8 +15,6 @@ The user sets up and changes the summary's structure by dragging and dropping fi
 This "rotation" or pivoting of the summary table gives the concept its name.
 </p>
 
-### Purpose
-
 A pivot table is especially useful with large amounts of data. For example, a store owner might list monthly sales totals
 for a large number of merchandise items in an Excel spreadsheet. If the owner wanted to know which items sold better in a
 particular financial quarter, it would be very time-consuming for them to look through pages of figures to find
@@ -25,7 +23,7 @@ for the quarter in question.
 
 
 
-### Pivot Table Examples
+### Examples
 
 There are a lot of articles, tutorials, videos on Web to help people learn how to use pivot table.
 
@@ -38,7 +36,7 @@ is a good example demonstrating how to use Excel Pivot Table to analyze some ele
 On [WebPivotTable Demo Page](/demo), there are some demos how to use WebPivotTable to analyze the same data set.
  
 
-### History of Pivot Table
+### History
 
 The concept of pivot table came from Lotus Software (called Lotus Development Corporation before its acquisition by IBM)
 with a revolutionary spreadsheet program called Lotus Improv at 1987. In 1988, Steve Jobs saw the program and immediately
