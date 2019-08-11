@@ -14,7 +14,7 @@ and can be used with any JavaScript library or framework that works with HTML.
 </p>
 
 Use a web component is just like use a normal HTML tag. 
-For example, if we put a HTML tag <button> on page and it will functional as a button. 
+For example, if we put a HTML tag 'button' on page and it will functional as a button. 
 The same as web component, if we put a web component tag on page, we can have a custom component 
 with encapsulated logic and style.
 
