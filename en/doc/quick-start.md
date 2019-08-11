@@ -13,7 +13,7 @@ With two simple steps, you can put WebPivotTable into your web page.
 
 ### STEP 1: import wpt.js in head
 
-In the head of your web page html file, import wpt.js from our CDN:
+In the head of your web page html file, import wpt.js from our web site:
 
 ```html
 <head>

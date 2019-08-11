@@ -1,7 +1,13 @@
 ---
-title: Integration
+title: Integration Guide
 description: "WebPivotTable integration guide"
 ---
+
+WebPivotTable follows web component standard so that it can be easily integrated into any web pages or web applications.
+
+In [Quick Start](/doc/quick-start) we learned that we can do this with two simple steps. 
+But this is not suggest for any production use as we have no guratee that the link of wpt.js in our web site is relable and performance well.
+
 
 ## Download
 
