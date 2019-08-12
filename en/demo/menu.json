@@ -9,6 +9,10 @@
       {
         "name": "Overview Demo",
         "to": "/overview"
+      },
+      {
+        "name": "Showcase",
+        "to": "/showcase"
       }
     ]
   }

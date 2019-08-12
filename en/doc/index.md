@@ -8,7 +8,7 @@ Unlike Microsoft Excel's Pivot Table ,which is a desktop application, WebPivotTa
 that can be inserted into any web page with a little HTML and JavaScript.
 
 
-> __Web Component + Pivot Table = WebPivotTable Component__
+> __Pivot Table as Web Component = WebPivotTable Component__
 
 
 - [Introduction of pivot table](/doc/pivot-table)

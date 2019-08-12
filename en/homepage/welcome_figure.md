@@ -1,4 +1,4 @@
 ---
 title: Welcome figure - video
 ---
-What is WebPivotTable?
+[What is WebPivotTable?](/doc)

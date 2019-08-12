@@ -8,12 +8,13 @@ WebPivotTable follows web component standard so that it can be easily integrated
 ## Download
 
 In [Quick Start](/doc/quick-start) we import WebPivotTable javascript wpt.js from latest released WebPivotTable on this website,
-this is not suggested for any production use as this release is only for test purpuse, the link may be broken and also no guratee of performance.
+this is fine if you just want to give WebPivotTable a try. But this is not suggested for any production use since the released file on this web site 
+is only for test purpose, the link may be broken and also no guratee of performance.
  
 For production use, please go to [Download Page](/download) to get a WebPivotTable package.
 
 There are two editions of WebPivotTable: Free edition and Pro edition.
-Free edition has almost the same functionalities as Pro edition except that Free edition does not provide some [APIs](/doc/apis). 
+Free edition has almost the same functionality as Pro edition except that Free edition does not provide some [APIs](/doc/apis). 
 
 ## Installation
 
@@ -37,9 +38,9 @@ webpivotptable
        |       |      ├─-- tr-TR.json
        |       |      └─-- zh-CN.json
        |       ├─-- index.html
-       |       ├─-- jquery.html
+       |       ├─-- demo.html
        |       ├─-- ...
-       |       └─-- react.html
+       |       └─-- quick-start.html
        └─-- server
                ├─-- README.md
                ├─-- package.json
