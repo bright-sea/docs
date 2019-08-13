@@ -77,7 +77,6 @@
           { "to": "#limit", "name": "limit" },
           { "to": "#small-screen-breakpoint", "name": "smallScreenBreakpoint" },
           { "to": "#medium-screen-breakpoint", "name": "mediumScreenBreakpoint" },
-          { "to": "#navigation-panel-width", "name": "navigationPanelWidth" },
           { "to": "#decimal-point", "name": "decimalPoint" },
           { "to": "#thousands-sep", "name": "thousandsSep" },
           { "to": "#default-to-distinct-count", "name": "defaultToDistinctCount" },
@@ -89,10 +88,7 @@
           { "to": "#file-links", "name": "fileLinks" },
           { "to": "#custom-handlers", "name": "customHandlers" },
           { "to": "#custom-buttons", "name": "customButtons" },
-          { "to": "#filestack", "name": "filestack" },
-          { "to": "#source", "name": "source" },
-          { "to": "#report", "name": "report" },
-          { "to": "#sheet", "name": "sheet" }
+          { "to": "#filestack", "name": "filestack" }
         ]
       },
       {
