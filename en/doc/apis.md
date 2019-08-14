@@ -48,6 +48,52 @@ wpt.setOptions(options);
 This `setOptions` API is a major way to customize WebPivotTable, see [Options](/doc/options) for more details.
 </div>
 
+<h2 id="get-options"> `getOptions` </h2>
+
+```javascript
+var options = wpt.getOptions();
+```
+
+<h2 id="show-control-panel"> `showControlPanel` </h2>
+
+```javascript
+wpt.showControlPanel();
+```
+
+<h2 id="hide-control-panel"> `hideControlPanel` </h2>
+
+```javascript
+wpt.hideControlPanel();
+```
+
+<h2 id="toggle-control-panel"> `toggleControlPanel` </h2>
+
+```javascript
+wpt.toggleControlPanel();
+```
+
+<h2 id="open-dialog"> `openDialog` </h2>
+
+```javascript
+wpt.openDialog({ type: "" , width: "", height: ""});
+```
+
+| Param Name       | Param Type    | Optional   | Description                 |
+|------------------|---------------|------------|-----------------------------|
+|`type`            | `object`      | no         |            |
+|`width`           | `object`      | no         |            |
+|`height`          | `object`      | no         |            |
+|`payload`         | `object`      | no         |            |
+
+
+<h2 id="close-dialog"> `closeDialog` </h2>
+
+```javascript
+wpt.closeDialog();
+```
+
+
+
 <h2 id="set-data-array"> `setDataArray`  
 
 ```javascript
