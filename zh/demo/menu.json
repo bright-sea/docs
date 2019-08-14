@@ -1,6 +1,6 @@
 [
   {
-    "title": "Essentials",
+    "title": "Video demo",
     "links": [
       {
         "name": "Quick Start Demo",
@@ -9,6 +9,43 @@
       {
         "name": "Overview Demo",
         "to": "/overview"
+      }
+    ]
+  },
+  {
+    "title": "Showcase",
+    "links": [
+      {
+        "name": "Demo",
+        "to": "/demo"
+      },
+      {
+        "name": "Custom options",
+        "to": "/custom-options"
+      },
+      {
+        "name": "Share data source",
+        "to": "/share-source"
+      },
+      {
+        "name": "Preload csv source data",
+        "to": "/preload-csv-source"
+      },
+      {
+        "name": "Preload OLAP cube data",
+        "to": "/preload-olap-source"
+      },
+      {
+        "name": "Work with jquery",
+        "to": "/jquery"
+      },
+      {
+        "name": "Work with react framework",
+        "to": "/react"
+      },
+      {
+        "name": "Work with vue framework",
+        "to": "/vue"
       }
     ]
   }
