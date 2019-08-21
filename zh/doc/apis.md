@@ -25,7 +25,7 @@ Most of WebPivotTable APIs are asynchronous, it will return a Promise.
   
   
 
-<h2 id="set-locale">`setLocale`</h2>
+<h2 id="set-locale">setLocale</h2>
 
 ```javascript
 wpt.setLocale(locale);
@@ -35,7 +35,7 @@ wpt.setLocale(locale);
 |`locale`          | `string`      | no         | locale code                 |
 
 
-<h2 id="set-options"> `setOptions` </h2>
+<h2 id="set-options"> setOptions </h2>
 
 ```javascript
 wpt.setOptions(options);
@@ -48,133 +48,276 @@ wpt.setOptions(options);
 This `setOptions` API is a major way to customize WebPivotTable, see [Options](/doc/options) for more details.
 </div>
 
-<h2 id="set-data-array"> `setDataArray`  
+<h2 id="get-options"> getOptions </h2>
 
 ```javascript
-wpt.$eventBus.$emit("setDataArray", attrArray, dataArray, dataUrl, wptObject, successCB, errorCB);
+var options = wpt.getOptions();
 ```
+
+<h2 id="show-control-panel"> showControlPanel </h2>
+
+```javascript
+wpt.showControlPanel();
+```
+
+<h2 id="hide-control-panel"> hideControlPanel </h2>
+
+```javascript
+wpt.hideControlPanel();
+```
+
+<h2 id="toggle-control-panel"> toggleControlPanel </h2>
+
+```javascript
+wpt.toggleControlPanel();
+```
+
+<h2 id="open-dialog"> openDialog </h2>
+
+```javascript
+wpt.openDialog({ type: "" , width: "", height: ""});
+```
+
+| Param Name       | Param Type    | Optional   | Description                 |
+|------------------|---------------|------------|-----------------------------|
+|`type`            | `object`      | no         |            |
+|`width`           | `object`      | no         |            |
+|`height`          | `object`      | no         |            |
+|`payload`         | `object`      | no         |            |
+
+
+<h2 id="close-dialog"> closeDialog </h2>
+
+```javascript
+wpt.closeDialog();
+```
+
+<h2 id="reset"> reset </h2>
+
+```javascript
+wpt.reset();
+```
+
+<h2 id="refresh"> refresh </h2>
+
+```javascript
+wpt.refresh();
+```
+
+<h2 id="loading-message"> loadingMessage </h2>
+
+```javascript
+wpt.loadingMessage(message);
+```
+| Param Name       | Param Type    | Optional   | Description                 |
+|------------------|---------------|------------|-----------------------------|
+|`message`         | `string`      | no         |            |
+
+<h2 id="clear-message"> clearMessage </h2>
+
+```javascript
+wpt.clearMessage();
+```
+
+
+<h2 id="error-message"> errorMessage </h2>
+
+```javascript
+wpt.errorMessage(error);
+```
+| Param Name       | Param Type             | Optional   | Description                 |
+|------------------|------------------------|------------|-----------------------------|
+|`error`           | `string | Object`      | no         |            |
+
+
+
+
+<h2 id="set-wpt-from-data-array"> setWptFromDataArray </h2>  
+
+```javascript
+wpt.setWptFromDataArray(attrArray, dataArray, dataUrl, url, type);
+```
+
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `attrArray`      | `array`       | no         | Array of attributes. example: ["department", "area", "cost", ...]                                                                      |
 | `dataArray`      | `array`       | no         | Array of data rows, each row is also an array of values. example: [["dep1", "area1", 1000, ...], ..., ["dep6", "area2", 2000,...]]     |
-| `dataUrl`        | `string`      | yes        | Url for track the source data, This is just for tracking, pass "" if not know or no need.                                              |
-| `wptObject`      | `object`      | yes        | pre-saved wpt JSON object                                                                                                              |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
-  
+| `url`            | `string`      | yes        | Url for track the source data, This is just for tracking, pass "" if not know or no need.                                              |
+| `type`           | `object`      | yes        | pre-saved wpt JSON object                                                                                                              |
+
 Load source data from data array
   
 Notes:  
-- If `wptObject` is not null, use it as pre-saved pivot selections
-
 - This is major API to load source data into WebPivotTable, it was
   used by `setCsvUrl` and `setCsvRawData` internally.  Actually, developers
   can load any kinds of data from any other resources, like SQL databases,
   and format them as attrArray and dataArray, then load them into WebPivotTable.
 
 
-<h2 id="set-csv-url"> `setCsvUrl`  
+<h2 id="get-source-from-data-array"> getSourceFromDataArray </h2>  
 
 ```javascript
-wpt.$eventBus.$emit("setCsvUrl", csvUrl, separator, wptObject, successCB, errorCB);
+wpt.getSourceFromDataArray(attrArray, dataArray, dataUrl, url, type);
+```
+
+
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `attrArray`      | `array`       | no         | Array of attributes. example: ["department", "area", "cost", ...]                                                                      |
+| `dataArray`      | `array`       | no         | Array of data rows, each row is also an array of values. example: [["dep1", "area1", 1000, ...], ..., ["dep6", "area2", 2000,...]]     |
+| `url`            | `string`      | yes        | Url for track the source data, This is just for tracking, pass "" if not know or no need.                                              |
+| `type`           | `object`      | yes        | pre-saved wpt JSON object                                                                                                              |
+
+
+<h2 id="set-wpt-from-csv-url"> setWptFromCsvUrl </h2> 
+
+```javascript
+wpt.setWptFromCsvUrl(url, delimiter);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `csvUrl`         | `string`      | no         | URL String of CSV file           |
-| `separator`      | `string`      | yes        | separator char for CSV file, default is ","     |
-| `wptObject`      | `object`      | yes        | pre-saved wpt JSON object                                                                                                              |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+| `url`            | `string`      | no         | URL String of CSV file           |
+| `delimiter`      | `string`      | yes        | separator char for CSV file, default is ","     |
+  
+Set wpt from CSV file URL
+  
+
+<h2 id="get-source-from-csv-url"> getSourceFromCsvUrl </h2> 
+
+```javascript
+wpt.getSourceFromCsvUrl(url, delimiter);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `url`            | `string`      | no         | URL String of CSV file           |
+| `delimiter`      | `string`      | yes        | separator char for CSV file, default is ","     |
   
 Load source data from CSV file URL
   
-Notes:  
-- If `wptObject` is not null, use it as pre-saved pivot selections
 
-
-<h2 id="set-wpt-string"> `setWptString`  
+<h2 id="set-wpt-from-excel-url"> setWptFromExcelUrl </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("setWptString", wptString, dataObject, successCB, errorCB);
+wpt.setWptFromExcelUrl(url, delimiter);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `wptString`      | `string`      | no         | pre-saved WPT format string           |
-| `dataObject`     | `object`      | yes        | if exist, use this as data and fields of first source , format {data:[], fields:[]}  |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+| `url`            | `string`      | no         | URL String of Excel file           |
+| `delimiter`      | `string`      | yes        | separator char for Excel file, default is ","     |
   
-Load WPT format String
+Set wpt from Excel file URL
   
 
-
-<h2 id="set-wpt-object"> `setWptObject`  
+<h2 id="get-source-from-excel-url"> getSourceFromExcelUrl </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("setWptObject", wptObject, dataObject, successCB, errorCB);
+wpt.getSourceFromExcelUrl(url, delimiter);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `wptObject`      | `object`      | no         | pre-saved WPT format JSON object           |
-| `dataObject`     | `object`      | yes        | if exist, use this as data and fields of first source , format {data:[], fields:[]}  |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+| `url`            | `string`      | no         | URL String of Excel file           |
+| `delimiter`      | `string`      | yes        | separator char for Excel file, default is ","     |
   
-Load WPT format JSON Oject
+Load source data from Excel file URL
   
 
 
-<h2 id="set-wpt"> `setWpt`  
+<h2 id="set-wpt-from-web-service"> setWptFromWebService </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("setWpt", wpt, dataObject, successCB, errorCB);
+wpt.setWptFromWebService(url);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `wpt`            | `string\object` | no         | pre-saved WPT format String or JSON object           |
-| `dataObject`     | `object`      | yes        | if exist, use this as data and fields of first source , format {data:[], fields:[]}  |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+| `url`            | `string`      | no         | URL String of Web Service           |
   
-Load WPT format String or JSON Object with updated first source data
+Set wpt from Web Service
   
 
-<h2 id="generate-wpt-string"> `generateWptString`  
+<h2 id="get-source-from-web-service"> getSourceFromWebService </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("generateWptString", ignoreData, successCB);
+wpt.getSourceFromWebService(url);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `ignoreData`     | `bool`        | no         | if equal to true, ignore data and fields, only save options and controls           |
-| `successCB`      | `function`    | yes        | success callback, in this callback, generate wptString will be published as first parameter                                            |
+| `url`            | `string`      | no         | URL String of Web Service            |
   
-Generate WPT format string
+Load source data from Web Service URL
   
 
-<h2 id="generate-wpt-json"> `generateWptJSON`  
+
+<h2 id="set-wpt-from-google-spread-sheet"> setWptFromGoogleSpreadSheet </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("generateWptJSON", ignoreData, successCB);
+wpt.setWptFromGoogleSpreadSheet(url);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `ignoreData`     | `bool`        | no         | if equal to true, ignore data and fields, only save options and controls           |
-| `successCB`      | `function`    | yes        | success callback, in this callback, generate wpt object will be published as first parameter                                            |
+| `url`            | `string`      | no         | URL String of Google Spread Sheet           |
   
-Generate WPT format JSON object
+Set wpt from Google Spread Sheet
   
 
-<h2 id="set-olap-cube"> `setOlapCube`  
+<h2 id="get-source-from-google-spread-sheet"> getSourceFromGoogleSpreadSheet </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("setOlapCube", olapData, successCB, errorCB);
+wpt.getSourceFromGoogleSpreadSheet(url);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `url`            | `string`      | no         | URL String of Google Spread Sheet            |
+  
+Load source data from Google Spread Sheet URL
+  
+
+<h2 id="set-wpt-from-wot-Url"> setWptFromWptUrl </h2> 
+
+```javascript
+wpt.setWptFromWptUrl(url);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `url`            | `string`      | no         | URL String of wpt file           |
+  
+Set wpt from wpt file
+  
+
+
+<h2 id="set-wpt-from-local-file"> setWptFromLocalFile </h2> 
+
+```javascript
+wpt.setWptFromLocalFile(file, type);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `file`           | `Object`      | no         | local file           |
+| `type`           | `String`      | no         | file type           |
+  
+Set wpt from local file
+  
+
+<h2 id="set-wpt"> setWpt </h2> 
+
+```javascript
+wpt.setWpt(wpt);
+```
+| Param Name       | Param Type       | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `wpt`           | `String | Object` | no         | wpt string or object          |
+  
+Set wpt from wpt string or object
+  
+
+<h2 id="set-wpt-from-olap-cube"> setWptFromOlapCube </h2> 
+
+```javascript
+wpt.setWptFromOlapCube(olapData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `olapData`       | `Object`      | no         | Object of OLAP Cube Information           |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
   
 Load OLAP Cube
   
@@ -185,56 +328,68 @@ olapData: {
   catalog: "Catalog name",
   cubeName: "Cube name"
 }
-```
+```  
 
-<h2 id="set-web-service-data-url"> `setWebServiceDataUrl`  
+<h2 id="get-source-from-olap-cube"> getSourceFromOlapCube </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("setWebServiceDataUrl", wsDataUrl, wptObject, successCB, errorCB);
+wpt.getSourceFromOlapCube(olapData);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `wsDataUrl`      | `string`      | no         | URL String of Web Service Data URL           |
-| `wptObject`      | `object`      | yes        | pre-saved wpt JSON object                                                                                                              |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `olapData`       | `Object`      | no         | Object of OLAP Cube Information           |
   
-Load source data from WebService URL and create a new WPT with a new Sheet
-  
-Notes:  
-- If `wptObject` is not null, use it as pre-saved pivot selections
-
-- The Web Service should return a JSON object
 ```
-       {
-           attrArray: [],
-           dataArray: []
-       }
-```       
-- This is a very useful API to access data in SQL databases or any other data storages
-    since Web Service access is cross domain and can be provided by any backend technologies.
+olapData: {
+  xmlaUrl: "Xmla server url",
+  dataSourceInfo: "Data source info",
+  catalog: "Catalog name",
+  cubeName: "Cube name"
+}
+```  
+Load source data from Olap Cube
+  
 
-
-<h2 id="add-web-service-data-url"> `addWebServiceDataUrl`  
+<h2 id="generate-wpt-string"> `generateWptString`  </h2> 
 
 ```javascript
-wpt.$eventBus.$emit("addWebServiceDataUrl", wsDataUrl, successCB, errorCB);
+wpt.generateWptString(ignoreData);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `wsDataUrl`      | `string`      | no         | URL String of Web Service Data URL           |
-| `successCB`      | `function`    | yes        | success callback, in this callback, current wpt object will be published as first parameter                                            |
-| `errorCB`        | `function`    | yes        | error callback, in this callback, error object will be published as first parameter                                                    |
+| `ignoreData`     | `bool`        | no         | if equal to true, ignore data and fields, only save options and controls           |
   
-Add a new source data from WebService URL
+Generate WPT format string
   
-Notes:  
-- The Web Service should return a JSON object
+
+<h2 id="generate-wpt-json"> `generateWptJSON`  </h2> 
+
+```javascript
+wpt.generateWptJSON(ignoreData);
 ```
-       {
-           attrArray: [],
-           dataArray: []
-       }
-```       
-- This is a very useful API to access data in SQL databases or any other data storages
-    since Web Service access is cross domain and can be provided by any backend technologies.
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `ignoreData`     | `bool`        | no         | if equal to true, ignore data and fields, only save options and controls           |
+  
+Generate WPT format JSON object
+  
+
+<h2 id="get-source-object"> `getSourceObject`  </h2> 
+
+```javascript
+wpt.getSourceObject();
+```
+Get source object
+
+
+<h2 id=set-source-object"> `setSourceObject`  </h2> 
+
+```javascript
+wpt.setSourceObject(source);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `source`         | `Object`      | no         |
+  
+Set source object
