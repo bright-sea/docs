@@ -109,7 +109,7 @@ wpt.loadingMessage(message);
 ```
 | Param Name       | Param Type    | Optional   | Description                 |
 |------------------|---------------|------------|-----------------------------|
-| message         | String         | no         |            |
+| message          | String         | no         |            |
 
 <h2 id="clear-message"> clearMessage </h2>
 
@@ -125,7 +125,7 @@ wpt.errorMessage(error);
 ```
 | Param Name       | Param Type             | Optional   | Description                 |
 |------------------|------------------------|------------|-----------------------------|
-|error             | `string`|`Object`      | no         |            |
+|error             | String or Object      | no         |            |
 
 
 
@@ -301,7 +301,7 @@ wpt.setWpt(wpt);
 ```
 | Param Name       | Param Type          | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| wpt              | `String` or `Object`| no         | wpt string or object          |
+| wpt              | String or Object    | no         | wpt string or object          |
   
 Set wpt from wpt string or object
   
