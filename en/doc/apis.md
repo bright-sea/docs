@@ -351,7 +351,7 @@ olapData: {
 Load source data from Olap Cube
   
 
-<h2 id="generate-wpt-string"> `generateWptString`  </h2> 
+<h2 id="generate-wpt-string"> generateWptString  </h2> 
 
 ```javascript
 wpt.generateWptString(ignoreData);
@@ -363,7 +363,7 @@ wpt.generateWptString(ignoreData);
 Generate WPT format string
   
 
-<h2 id="generate-wpt-json"> `generateWptJSON`  </h2> 
+<h2 id="generate-wpt-json"> generateWptJSON </h2> 
 
 ```javascript
 wpt.generateWptJSON(ignoreData);
@@ -375,7 +375,7 @@ wpt.generateWptJSON(ignoreData);
 Generate WPT format JSON object
   
 
-<h2 id="get-source-object"> `getSourceObject`  </h2> 
+<h2 id="get-source-object"> getSourceObject </h2> 
 
 ```javascript
 wpt.getSourceObject();
@@ -383,13 +383,13 @@ wpt.getSourceObject();
 Get source object
 
 
-<h2 id=set-source-object"> `setSourceObject`  </h2> 
+<h2 id=set-source-object"> setSourceObject </h2> 
 
 ```javascript
 wpt.setSourceObject(source);
 ```
 | Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
 |------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `source`         | `Object`      | no         |
+| `source`         | `Object`      | no         |                           |
   
 Set source object
