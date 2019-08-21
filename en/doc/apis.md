@@ -239,3 +239,148 @@ wpt.getSourceFromWebService(url);
   
 Load source data from Web Service URL
   
+
+<h2 id="set-wpt-from-google-spread-sheet"> setWptFromGoogleSpreadSheet </h2> 
+
+```javascript
+wpt.setWptFromGoogleSpreadSheet(url);
+```
+| Param Name     | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|----------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| url            | String        | no         | URL String of Google Spread Sheet           |
+
+Set wpt from Google Spread Sheet
+  
+
+<h2 id="get-source-from-google-spread-sheet"> getSourceFromGoogleSpreadSheet </h2> 
+
+```javascript
+wpt.getSourceFromGoogleSpreadSheet(url);
+```
+| Param Name     | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|----------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| url            | String        | no         | URL String of Google Spread Sheet           |
+  
+Load source data from Google Spread Sheet URL
+  
+
+<h2 id="set-wpt-from-wot-Url"> setWptFromWptUrl </h2> 
+
+```javascript
+wpt.setWptFromWptUrl(url);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| url              | String      | no         | URL String of wpt file           |
+  
+Set wpt from wpt file
+  
+
+
+<h2 id="set-wpt-from-local-file"> setWptFromLocalFile </h2> 
+
+```javascript
+wpt.setWptFromLocalFile(file, type);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| file             | Object      | no         | local file           |
+| type             | String      | no         | file type           |
+  
+Set wpt from local file
+  
+
+<h2 id="set-wpt"> setWpt </h2> 
+
+```javascript
+wpt.setWpt(wpt);
+```
+| Param Name       | Param Type          | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| wpt              | String or Object    | no         | wpt string or object          |
+  
+Set wpt from wpt string or object
+  
+
+<h2 id="set-wpt-from-olap-cube"> setWptFromOlapCube </h2> 
+
+```javascript
+wpt.setWptFromOlapCube(olapData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| olapData         | Object      | no         | Object of OLAP Cube Information           |
+  
+Load OLAP Cube
+  
+```
+olapData: {
+  xmlaUrl: "Xmla server url",
+  dataSourceInfo: "Data source info",
+  catalog: "Catalog name",
+  cubeName: "Cube name"
+}
+```  
+
+<h2 id="get-source-from-olap-cube"> getSourceFromOlapCube </h2> 
+
+```javascript
+wpt.getSourceFromOlapCube(olapData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| olapData         | Object      | no         | Object of OLAP Cube Information           |
+  
+```
+olapData: {
+  xmlaUrl: "Xmla server url",
+  dataSourceInfo: "Data source info",
+  catalog: "Catalog name",
+  cubeName: "Cube name"
+}
+```  
+Load source data from Olap Cube
+  
+
+<h2 id="generate-wpt-string"> generateWptString  </h2> 
+
+```javascript
+wpt.generateWptString(ignoreData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ignoreData       | Boolean       | no         | if equal to true, ignore data and fields, only save options and controls           |
+  
+Generate WPT format string
+  
+
+<h2 id="generate-wpt-json"> generateWptJSON </h2> 
+
+```javascript
+wpt.generateWptJSON(ignoreData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ignoreData       | Boolean       | no         | if equal to true, ignore data and fields, only save options and controls           |
+  
+Generate WPT format JSON object
+  
+
+<h2 id="get-source-object"> getSourceObject </h2> 
+
+```javascript
+wpt.getSourceObject();
+```
+Get source object
+
+
+<h2 id=set-source-object"> setSourceObject </h2> 
+
+```javascript
+wpt.setSourceObject(source);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| source           | Object      | no         |                           |
+  
+Set source object
