@@ -365,21 +365,3 @@ wpt.generateWptJSON(ignoreData);
 Generate WPT format JSON object
   
 
-<h2 id="get-source-object"> getSourceObject </h2> 
-
-```javascript
-wpt.getSourceObject();
-```
-Get source object
-
-
-<h2 id=set-source-object"> setSourceObject </h2> 
-
-```javascript
-wpt.setSourceObject(source);
-```
-| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
-|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| source           | Object        | no         |                           |
-  
-Set source object
