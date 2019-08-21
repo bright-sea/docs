@@ -301,3 +301,43 @@ wpt.setWpt(wpt);
   
 Set wpt from wpt string or object
   
+  
+<h2 id="set-wpt-from-olap-cube"> setWptFromOlapCube </h2> 
+
+```javascript
+wpt.setWptFromOlapCube(olapData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| olapData         | Object      | no         | Object of OLAP Cube Information           |
+  
+Load OLAP Cube
+  
+```
+olapData: {
+  xmlaUrl: "Xmla server url",
+  dataSourceInfo: "Data source info",
+  catalog: "Catalog name",
+  cubeName: "Cube name"
+}
+```  
+
+<h2 id="get-source-from-olap-cube"> getSourceFromOlapCube </h2> 
+
+```javascript
+wpt.getSourceFromOlapCube(olapData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| olapData         | Object      | no         | Object of OLAP Cube Information           |
+  
+```
+olapData: {
+  xmlaUrl: "Xmla server url",
+  dataSourceInfo: "Data source info",
+  catalog: "Catalog name",
+  cubeName: "Cube name"
+}
+```  
+Load source data from Olap Cube
+  
