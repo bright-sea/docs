@@ -341,3 +341,45 @@ olapData: {
 ```  
 Load source data from Olap Cube
   
+<h2 id="generate-wpt-string"> generateWptString </h2> 
+
+```javascript
+wpt.generateWptString(ignoreData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ignoreData       | Boolean       | no         | if equal to true, ignore data and fields, only save options and controls           |
+  
+Generate WPT format string
+  
+
+<h2 id="generate-wpt-json"> generateWptJSON </h2> 
+
+```javascript
+wpt.generateWptJSON(ignoreData);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| ignoreData       | Boolean       | no         | if equal to true, ignore data and fields, only save options and controls           |
+  
+Generate WPT format JSON object
+  
+
+<h2 id="get-source-object"> getSourceObject </h2> 
+
+```javascript
+wpt.getSourceObject();
+```
+Get source object
+
+
+<h2 id=set-source-object"> setSourceObject </h2> 
+
+```javascript
+wpt.setSourceObject(source);
+```
+| Param Name       | Param Type    | Optional   | Description                                                                                                                                                                                                                                                                                 |
+|------------------|---------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| source           | Object        | no         |                           |
+  
+Set source object
